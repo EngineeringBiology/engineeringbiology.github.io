@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Инженерная биология</title>
+  <meta name="description" content="Инженерный подход к биологическим исследованиям. AI, белки, моделирование и воспроизводимая наука." />
+  <meta property="og:title" content="Инженерная биология" />
+  <meta property="og:description" content="Инженерный подход к биологическим исследованиям." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+  <link rel="icon" href="logo.png" />
+  <style>
+    :root {
+      --bg: #05070b;
+      --panel: #0c1118;
+      --text: #f5f7fa;
+      --muted: #aeb7c2;
+      --accent: #8eddbb;
+      --line: rgba(142, 221, 187, 0.22);
+      --soft: rgba(142, 221, 187, 0.07);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(142, 221, 187, 0.12), transparent 34rem),
+        radial-gradient(circle at 20% 80%, rgba(142, 221, 187, 0.06), transparent 26rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 72vh;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 54px;
+      align-items: center;
+      padding: 60px 0 72px;
+    }
+
+    .kicker {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.95;
+      margin: 0 0 24px;
+      letter-spacing: -0.07em;
+    }
+
+    .lead {
+      font-size: clamp(20px, 2.4vw, 30px);
+      color: #dce5ee;
+      max-width: 720px;
+      margin: 0 0 24px;
+    }
+
+    .sublead {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 34px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #06100d;
+      border-color: var(--accent);
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      background: rgba(12, 17, 24, 0.72);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.28);
+    }
+
+    .hero-card img {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+    }
+
+    section {
+      padding: 70px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      letter-spacing: -0.05em;
+      margin: 0 0 18px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 760px;
+      margin: 0 0 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 170px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px 14px 20px;
+      text-align: center;
+      color: #dce5ee;
+      background: linear-gradient(180deg, rgba(142, 221, 187, 0.08), rgba(255,255,255,0.025));
+      min-height: 148px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      font-size: 22px;
+      z-index: 2;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      color: var(--accent);
+    }
+
+    .icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .step-text {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 160px;
+    }
+
+    .note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .articles {
+      margin-top: 34px;
+    }
+
+    .article-card {
+      display: block;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 150px;
+      color: var(--text);
+    }
+
+    .article-card:hover {
+      text-decoration: none;
+      background: rgba(142, 221, 187, 0.055);
+    }
+
+    .article-card .tag {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .article-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .article-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 48px 0 64px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width: 920px) {
+      header { align-items: flex-start; }
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 34px; }
+      .hero-card { order: -1; }
+      .grid, .grid.two { grid-template-columns: 1fr; }
+      .pipeline { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after {
+        content: "↓";
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: -24px;
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="wrap">
+    <div class="brand">
+      <img src="logo.png" alt="Логотип Инженерной биологии" />
+      <span>Инженерная биология</span>
+    </div>
+    <nav>
+      <a href="#principles">Принципы</a>
+      <a href="#now">Первый фокус</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div>
+        <div class="kicker">Engineering Biology</div>
+        <h1>Инженерный подход к биологии.</h1>
+        <p class="lead">Строим инженерные системы для биологических исследований.</p>
+        <p class="sublead">
+          Инженерная биология — публичный дневник и будущая инженерная платформа на стыке AI,
+          вычислительной биологии, моделирования, белков и воспроизводимого R&D.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#now">Что строим</a>
+          <a class="button" href="#principles">Принципы</a>
+          <a class="button" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="logo.png" alt="Инженерная биология" />
+      </div>
+    </section>
+
+    <section id="principles">
+      <div class="wrap">
+        <h2>Идея</h2>
+        <p class="section-intro">
+          Биология становится всё более вычислительной. Следующий шаг — сделать биологические
+          исследования инженерными: воспроизводимыми, автоматизированными, проверяемыми и
+          способными быстро переходить от гипотез к эксперименту.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h3>Инженерия</h3>
+            <p>Строим системы, а не разрозненные скрипты, красивые демо и одноразовые ноутбуки.</p>
+          </div>
+          <div class="card">
+            <h3>Биология</h3>
+            <p>Уважаем сложность живых систем и не выдаём вычислительную модель за реальность.</p>
+          </div>
+          <div class="card">
+            <h3>Воспроизводимость</h3>
+            <p>Каждый результат должен быть воспроизводимым, измеримым и пригодным для проверки.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="now">
+      <div class="wrap">
+        <h2>Первый фокус</h2>
+        <p class="section-intro">
+          Начинаем с Neural Cellular Automata как вычислительного стенда для проверки гипотез
+          о морфогенезе, устойчивости формы, восстановлении и управлении состоянием живых систем.
+        </p>
+
+        <div class="pipeline">
+          <div class="step">
+            <div class="icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="4" y="4" width="16" height="16" rx="3"/>
+                <path d="M8 8h2M14 8h2M8 12h8M8 16h5"/>
+              </svg>
+            </div>
+            <div class="step-title">Модель</div>
+            <div class="step-text">локальные правила и клеточное поле</div>
+          </div>
+
+          <div class="step">
+            <div class="icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="4" y="5" width="16" height="14" rx="2"/>
+                <path d="M8 9h2v2H8zM12 9h2v2h-2zM16 9h2v2h-2z"/>
+                <path d="M8 13h2v2H8zM12 13h2v2h-2zM16 13h2v2h-2z"/>
+                <path d="M10 21h4"/>
+              </svg>
+            </div>
+            <div class="step-title">Симуляция</div>
+            <div class="step-text">рост, повреждение, восстановление</div>
+          </div>
+
+          <div class="step">
+            <div class="icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+                <path d="M8 14a6 6 0 1 1 8 0c-1 1-1 2-1 4H9c0-2 0-3-1-4z"/>
+              </svg>
+            </div>
+            <div class="step-title">Гипотеза</div>
+            <div class="step-text">что управляет устойчивостью формы</div>
+          </div>
+
+          <div class="step">
+            <div class="icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 19V5"/>
+                <path d="M4 19h16"/>
+                <circle cx="8" cy="15" r="1.5"/>
+                <circle cx="12" cy="11" r="1.5"/>
+                <circle cx="17" cy="7" r="1.5"/>
+                <path d="M8 15l4-4 5-4"/>
+              </svg>
+            </div>
+            <div class="step-title">Проверка</div>
+            <div class="step-text">метрики, стресс-тесты, повторяемость</div>
+          </div>
+
+          <div class="step">
+            <div class="icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3v18"/>
+                <path d="M5 8h14"/>
+                <path d="M7 8l-3 6h6l-3-6z"/>
+                <path d="M17 8l-3 6h6l-3-6z"/>
+                <path d="M9 21h6"/>
+              </svg>
+            </div>
+            <div class="step-title">Платформа</div>
+            <div class="step-text">воспроизводимый исследовательский контур</div>
+          </div>
+        </div>
+
+        <p class="note">
+          Это не заявление о готовой терапии. Это инженерный путь: от маленьких воспроизводимых моделей
+          к проверяемым биологическим гипотезам и партнёрским экспериментам.
+        </p>
+
+        <div class="articles">
+          <h2>Статьи-основания</h2>
+          <p class="section-intro">
+            Первый исследовательский стенд опирается на линию работ о локальных правилах,
+            морфогенезе, регенерации и потере целевого состояния.
+          </p>
+
+          <div class="grid two">
+            <a class="article-card" href="https://distill.pub/2020/growing-ca/" target="_blank" rel="noreferrer">
+              <div class="tag">NCA · 2020</div>
+              <h3>Growing Neural Cellular Automata</h3>
+              <p>
+                Модель, в которой локальные правила клеток позволяют системе выращивать и
+                восстанавливать заданную форму.
+              </p>
+            </a>
+
+            <a class="article-card" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202509872" target="_blank" rel="noreferrer">
+              <div class="tag">Aging · 2025</div>
+              <h3>Aging as a Loss of Goal-Directedness</h3>
+              <p>
+                Гипотеза старения как потери целевого состояния и способности поддерживать
+                анатомическую форму после завершения развития.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <h2>Контакт</h2>
+        <p class="section-intro">
+          Проект только начинается. Сейчас собираются манифест, GitHub, NCA Lab и первые исследовательские заметки.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="mailto:hello@engineeringbiology.ru">hello@engineeringbiology.ru</a>
+          <a class="button" href="https://github.com/EngineeringBiology" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © 2026 Инженерная биология. Инженерный подход к биологическим исследованиям.
+  </footer>
+</body>
+</html>
