@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Инженерная биология — исследовательская студия</title>
-  <meta name="description" content="Инженерная биология — исследовательская студия. Применяем реверс-инжиниринг, математические модели и воспроизводимый эксперимент к живым системам: от белков до старения." />
-  <meta property="og:title" content="Инженерная биология — исследовательская студия" />
-  <meta property="og:description" content="Реверс-инжиниринг, модели и эксперимент против сложности живых систем." />
+  <title>Инженерная биология — открытые заметки о живых системах</title>
+  <meta name="description" content="Модели, данные и эксперименты вокруг старения и омоложения. Пишем понятно, показываем протоколы, сомнения и ошибки." />
+  <meta property="og:title" content="Инженерная биология — открытые заметки" />
+  <meta property="og:description" content="Модель, гипотеза, стенд и честные данные — без обещаний вечной молодости." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="logo.png" />
   <link rel="icon" href="logo.png" />
@@ -26,10 +26,10 @@
       <a href="#approach">Подходы</a>
       <a href="#projects">Проекты</a>
       <a href="#articles">Статьи</a>
-      <a href="#team">Команда</a>
+      <a href="#team">Люди</a>
       <a href="#contact">Контакты</a>
     </nav>
-    <a class="btn primary small" href="mailto:hello@engineeringbiology.ru">Написать нам</a>
+    <a class="btn primary small" href="mailto:g@muzykantov.me">Написать</a>
   </header>
 
   <main id="top">
@@ -37,26 +37,26 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-text">
-        <div class="kicker">Исследовательская студия · реверс-инжиниринг живых систем</div>
+        <div class="kicker">Открытый проект · старение, модели, эксперимент</div>
         <h1>Инженерная<br />биология</h1>
         <p class="lead">
-          Мы рассматриваем клетки, белки и организмы как инженерные системы — и применяем
-          к ним те же практики, что к железу и софту: модели, гипотезы, тесты и воспроизводимость.
+          Смотрим на клетки, белки и организмы как на системы, которые можно читать и проверять:
+          модель, гипотеза, стенд, данные. Без обещаний вечной молодости — с протоколами и сомнениями.
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="#approach">Как мы работаем</a>
-          <a class="btn" href="#projects">Проекты</a>
+          <a class="btn" href="#contact">Задать вопрос</a>
         </div>
         <ul class="stats">
           <li><b>05</b><span>частей открытого цикла</span></li>
           <li><b>205 034</b><span>транскриптомных профиля просеяно</span></li>
-          <li><b>+76%</b><span>медианная продолжительность жизни в пилоте C.&nbsp;elegans</span></li>
+          <li><b>~17 → ~30</b><span>дней: медиана в пилоте C.&nbsp;elegans</span></li>
         </ul>
       </div>
       <figure class="fig hero-fig">
         <svg viewBox="0 0 560 340" role="img" aria-label="Контур исследования: система, модель, гипотеза, эксперимент">
           <defs>
-            <marker id="m1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#191c1a"/></marker>
+            <marker id="m1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#181a17"/></marker>
           </defs>
           <path d="M14 24 V14 H24" class="s-ink" stroke-width="1.4"/>
           <path d="M536 24 V14 H546" class="s-ink" stroke-width="1.4"/>
@@ -78,43 +78,43 @@
           <path d="M485 186 V240 H215 V190" class="s-ink" stroke-width="1.4" marker-end="url(#m1)" stroke-dasharray="4 3"/>
           <text x="350" y="260" text-anchor="middle" class="t-mut" font-size="9.5">ДАННЫЕ → МОДЕЛЬ</text>
         </svg>
-        <figcaption>Контур исследования. Ни один шаг не считается законченным, пока результат не воспроизведён.</figcaption>
+        <figcaption>Рабочий цикл: сначала модель и явная гипотеза, потом эксперимент и разбор того, что не сошлось.</figcaption>
       </figure>
     </section>
 
-    <!-- 01 · МАНИФЕСТ -->
+    <!-- 01 · ЗАЧЕМ -->
     <section class="sec" id="about">
       <div class="sec-head">
-        <span class="kicker">01 · Манифест</span>
-        <h2>Зачем всё это</h2>
+        <span class="kicker">01 · Зачем</span>
+        <h2>Зачем это нужно</h2>
       </div>
       <div class="about-grid">
         <div class="about-body">
           <p>
-            Биология сегодня — море данных: геномы, транскриптомы, структуры белков, скрининги
-            веществ. Но данные сами по себе не превращаются в понимание. Разработки в биотехе
-            занимают не годы, а десятилетия, и многое остаётся неструктурированным.
+            В биологии уже много данных: геномы, транскриптомы, структуры белков, скрининги
+            веществ. Проблема в другом — данные не складываются в понимание сами по себе.
+            Между «мы это измерили» и «мы это умеем повторять» часто лежит год ручной работы.
           </p>
           <p>
-            Мы считаем, что живым системам не хватает инженерной культуры: модели до эксперимента,
-            явной гипотезы, воспроизводимого стенда и открытого протокола. Поэтому мы приносим в
-            биологию подходы, которые десятилетиями оттачивались в ИТ и инженерии.
+            Нам ближе другой порядок: сначала модель и явная гипотеза, потом стенд, протокол и
+            проверка. Так работают с железом и софтом; с живыми системами сложнее, но честный
+            цикл тот же — предсказал, проверил, разобрал ошибку.
           </p>
           <p>
-            Стартовая задача — старение и омоложение. Это самая сложная система управления из
-            известных: если мы научимся понимать её — научимся многому.
+            Первая большая задача — старение и омоложение. Она удобна тем, что быстро наказывает
+            за красивые теории: если модель не помогает живому организму, это видно.
           </p>
           <p class="fine">
-            Мы не обещаем «лекарство от старости». Мы строим метод, публикуем модели, данные и
-            протоколы — и проверяем всё на живых системах.
+            Мы не обещаем «лекарство от старости». Публикуем модели, данные и протоколы — и
+            отдельно помечаем, что пока лишь гипотеза.
           </p>
         </div>
         <figure class="pullquote">
           <blockquote>
-            Живое — это распределённая вычислительная система, которую никто не проектировал
-            целиком. Задача инженера — разобраться, как она устроена, и научиться ею управлять.
+            Живое похоже на систему без общего чертежа: много локальных правил, мало центра.
+            Поэтому важны не громкие слова, а предсказания, которые можно сломать экспериментом.
           </blockquote>
-          <figcaption>Геннадий Музыкантов, основатель студии</figcaption>
+          <figcaption>Геннадий Музыкантов</figcaption>
         </figure>
       </div>
     </section>
@@ -125,9 +125,8 @@
         <span class="kicker">02 · Подход</span>
         <h2>Как мы работаем</h2>
         <p class="sec-intro">
-          Любую сложную систему мы раскапываем с двух сторон одновременно: сверху вниз — от
-          поведения целого к деталям реализации, и снизу вверх — от отдельных механизмов к общим
-          принципам. Ниже — шесть рабочих приёмов.
+          Сложную систему раскапываем с двух сторон: от поведения целого к деталям и отдельных
+          механизмов к общим правилам. Ниже — шесть приёмов, которые реально используем в работе.
         </p>
       </div>
 
@@ -146,7 +145,7 @@
           <figure class="fig">
             <svg viewBox="0 0 560 340" role="img" aria-label="Два направления реверс-инжиниринга">
               <defs>
-                <marker id="m2a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#191c1a"/></marker>
+                <marker id="m2a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#181a17"/></marker>
               </defs>
               <rect x="140" y="28" width="280" height="54" rx="3" class="f-card s-ink" stroke-width="1.4"/>
               <text x="280" y="60" text-anchor="middle" class="t-ink" font-size="11">ПОВЕДЕНИЕ СИСТЕМЫ</text>
@@ -192,24 +191,24 @@
                 <path d="M436 48 V106 M436 106 V164 M436 164 V222 M436 222 V280"/>
                 <path d="M502 48 V106 M502 106 V164 M502 164 V222 M502 222 V280"/>
               </g>
-              <g fill="#fdfbf6" stroke="#c9ccc6" stroke-width="1.2">
+              <g fill="#fffdf8" stroke="#c9ccc6" stroke-width="1.2">
                 <circle cx="106" cy="48" r="9"/><circle cx="172" cy="48" r="9"/><circle cx="238" cy="48" r="9"/><circle cx="304" cy="48" r="9"/><circle cx="370" cy="48" r="9"/><circle cx="436" cy="48" r="9"/><circle cx="502" cy="48" r="9"/>
                 <circle cx="106" cy="106" r="9"/><circle cx="172" cy="106" r="9"/><circle cx="238" cy="106" r="9"/><circle cx="304" cy="106" r="9"/><circle cx="370" cy="106" r="9"/><circle cx="436" cy="106" r="9"/><circle cx="502" cy="106" r="9"/>
                 <circle cx="106" cy="164" r="9"/><circle cx="172" cy="164" r="9"/><circle cx="238" cy="164" r="9"/><circle cx="370" cy="164" r="9"/><circle cx="436" cy="164" r="9"/><circle cx="502" cy="164" r="9"/>
                 <circle cx="106" cy="222" r="9"/><circle cx="172" cy="222" r="9"/><circle cx="238" cy="222" r="9"/><circle cx="304" cy="222" r="9"/><circle cx="436" cy="222" r="9"/><circle cx="502" cy="222" r="9"/>
                 <circle cx="106" cy="280" r="9"/><circle cx="172" cy="280" r="9"/><circle cx="238" cy="280" r="9"/><circle cx="304" cy="280" r="9"/><circle cx="370" cy="280" r="9"/><circle cx="436" cy="280" r="9"/><circle cx="502" cy="280" r="9"/>
               </g>
-              <path d="M238 164 H296" stroke="#1c6b45" stroke-width="1.5" stroke-dasharray="4 3"/>
-              <path d="M304 164 V214" stroke="#1c6b45" stroke-width="1.5" stroke-dasharray="4 3"/>
-              <path d="M304 222 H362" stroke="#1c6b45" stroke-width="1.5" stroke-dasharray="4 3"/>
-              <circle cx="238" cy="164" r="9" fill="#1c6b45"/>
-              <circle cx="238" cy="164" r="15" fill="none" stroke="#1c6b45" stroke-width="1" opacity="0.45"/>
-              <circle cx="304" cy="164" r="9" fill="#fdfbf6" stroke="#b45309" stroke-width="1.4"/>
-              <circle cx="304" cy="164" r="3" fill="#b45309"/>
-              <circle cx="304" cy="222" r="9" fill="#fdfbf6" stroke="#b45309" stroke-width="1.4"/>
-              <circle cx="304" cy="222" r="3" fill="#b45309"/>
-              <circle cx="370" cy="222" r="9" fill="#fdfbf6" stroke="#b45309" stroke-width="1.4"/>
-              <circle cx="370" cy="222" r="3" fill="#b45309"/>
+              <path d="M238 164 H296" stroke="#2f6f5e" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <path d="M304 164 V214" stroke="#2f6f5e" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <path d="M304 222 H362" stroke="#2f6f5e" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <circle cx="238" cy="164" r="9" fill="#2f6f5e"/>
+              <circle cx="238" cy="164" r="15" fill="none" stroke="#2f6f5e" stroke-width="1" opacity="0.45"/>
+              <circle cx="304" cy="164" r="9" fill="#fffdf8" stroke="#c2410c" stroke-width="1.4"/>
+              <circle cx="304" cy="164" r="3" fill="#c2410c"/>
+              <circle cx="304" cy="222" r="9" fill="#fffdf8" stroke="#c2410c" stroke-width="1.4"/>
+              <circle cx="304" cy="222" r="3" fill="#c2410c"/>
+              <circle cx="370" cy="222" r="9" fill="#fffdf8" stroke="#c2410c" stroke-width="1.4"/>
+              <circle cx="370" cy="222" r="3" fill="#c2410c"/>
               <text x="280" y="330" text-anchor="middle" class="t-mut" font-size="9.5">ЭМЕРДЖЕНТНОСТЬ: НИКАКОГО ЦЕНТРА УПРАВЛЕНИЯ — ТОЛЬКО ЛОКАЛЬНЫЕ ПРАВИЛА</text>
             </svg>
           </figure>
@@ -230,12 +229,12 @@
           <figure class="fig">
             <svg viewBox="0 0 560 340" role="img" aria-label="Ландшафт аттракторов: молодой и старый">
               <defs>
-                <marker id="m4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#b45309"/></marker>
+                <marker id="m4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#c2410c"/></marker>
               </defs>
-              <path d="M40 150 C100 88 200 92 250 148 C290 194 320 194 360 150 C410 104 470 112 520 140 L520 320 L40 320 Z" fill="rgba(28,107,69,0.06)"/>
+              <path d="M40 150 C100 88 200 92 250 148 C290 194 320 194 360 150 C410 104 470 112 520 140 L520 320 L40 320 Z" fill="rgba(47,111,94,0.06)"/>
               <path d="M40 150 C100 88 200 92 250 148 C290 194 320 194 360 150 C410 104 470 112 520 140" class="s-ink" stroke-width="2"/>
-              <circle cx="150" cy="112" r="10" fill="#1c6b45" stroke="#f6f3ec" stroke-width="2.5"/>
-              <circle cx="440" cy="122" r="10" fill="none" stroke="#b45309" stroke-width="1.6" stroke-dasharray="4 3"/>
+              <circle cx="150" cy="112" r="10" fill="#2f6f5e" stroke="#f3efe6" stroke-width="2.5"/>
+              <circle cx="440" cy="122" r="10" fill="none" stroke="#c2410c" stroke-width="1.6" stroke-dasharray="4 3"/>
               <text x="150" y="86" text-anchor="middle" class="t-green" font-size="10.5">YOUNG</text>
               <text x="440" y="86" text-anchor="middle" class="t-amber" font-size="10.5">OLD</text>
               <path d="M150 232 H398" class="s-amber" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#m4)"/>
@@ -260,15 +259,15 @@
           <figure class="fig">
             <svg viewBox="0 0 560 340" role="img" aria-label="Вектор старения между двумя состояниями">
               <defs>
-                <marker id="m5a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#191c1a"/></marker>
-                <marker id="m5b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1c6b45"/></marker>
+                <marker id="m5a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#181a17"/></marker>
+                <marker id="m5b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2f6f5e"/></marker>
               </defs>
-              <ellipse cx="140" cy="150" rx="66" ry="48" fill="rgba(28,107,69,0.06)"/>
-              <ellipse cx="420" cy="150" rx="66" ry="48" fill="rgba(180,83,9,0.06)"/>
-              <g fill="#1c6b45">
+              <ellipse cx="140" cy="150" rx="66" ry="48" fill="rgba(47,111,94,0.06)"/>
+              <ellipse cx="420" cy="150" rx="66" ry="48" fill="rgba(194,65,12,0.06)"/>
+              <g fill="#2f6f5e">
                 <circle cx="108" cy="140" r="3"/><circle cx="122" cy="164" r="3"/><circle cx="140" cy="130" r="3"/><circle cx="158" cy="162" r="3"/><circle cx="176" cy="146" r="3"/><circle cx="128" cy="120" r="3"/><circle cx="150" cy="116" r="3"/><circle cx="168" cy="128" r="3"/><circle cx="100" cy="160" r="3"/><circle cx="156" cy="180" r="3"/><circle cx="136" cy="180" r="3"/><circle cx="112" cy="122" r="3"/><circle cx="182" cy="166" r="3"/><circle cx="124" cy="142" r="3"/>
               </g>
-              <g fill="#b45309">
+              <g fill="#c2410c">
                 <circle cx="390" cy="138" r="3"/><circle cx="402" cy="164" r="3"/><circle cx="420" cy="132" r="3"/><circle cx="438" cy="162" r="3"/><circle cx="454" cy="146" r="3"/><circle cx="410" cy="120" r="3"/><circle cx="430" cy="118" r="3"/><circle cx="448" cy="128" r="3"/><circle cx="384" cy="158" r="3"/><circle cx="436" cy="178" r="3"/><circle cx="416" cy="180" r="3"/><circle cx="394" cy="120" r="3"/><circle cx="460" cy="164" r="3"/><circle cx="406" cy="142" r="3"/>
               </g>
               <path d="M176 150 H378" class="s-ink" stroke-width="2" marker-end="url(#m5a)"/>
@@ -304,11 +303,11 @@
                 <text x="100" y="255" text-anchor="end" class="t-mut">5</text>
               </g>
               <g>
-                <rect x="110" y="44" width="227" height="28" fill="#1c6b45" opacity="0.40"/>
-                <rect x="110" y="92" width="296" height="28" fill="#1c6b45" opacity="0.55"/>
-                <rect x="110" y="140" width="374" height="28" fill="#1c6b45" opacity="0.70"/>
-                <rect x="110" y="188" width="394" height="28" fill="#1c6b45" opacity="0.85"/>
-                <rect x="110" y="236" width="400" height="28" fill="#1c6b45"/>
+                <rect x="110" y="44" width="227" height="28" fill="#2f6f5e" opacity="0.40"/>
+                <rect x="110" y="92" width="296" height="28" fill="#2f6f5e" opacity="0.55"/>
+                <rect x="110" y="140" width="374" height="28" fill="#2f6f5e" opacity="0.70"/>
+                <rect x="110" y="188" width="394" height="28" fill="#2f6f5e" opacity="0.85"/>
+                <rect x="110" y="236" width="400" height="28" fill="#2f6f5e"/>
               </g>
               <g font-size="10.5">
                 <text x="345" y="63" class="t-mut">56%</text>
@@ -346,15 +345,15 @@
               <text x="48" y="294" text-anchor="end" class="t-mut" font-size="9">0%</text>
               <text x="48" y="169" text-anchor="end" class="t-mut" font-size="9">50%</text>
               <text x="48" y="44" text-anchor="end" class="t-mut" font-size="9">100%</text>
-              <path d="M60 60 L175 60 C215 62 225 150 250 235 L330 290" fill="none" stroke="#191c1a" stroke-width="1.6"/>
-              <path d="M60 60 L235 60 C280 64 300 150 340 235 L460 290" fill="none" stroke="#1c6b45" stroke-width="2.4"/>
-              <path d="M195 60 V290" stroke="#191c1a" stroke-width="0.9" stroke-dasharray="3 4" opacity="0.5"/>
-              <path d="M272 60 V290" stroke="#1c6b45" stroke-width="0.9" stroke-dasharray="3 4" opacity="0.5"/>
+              <path d="M60 60 L175 60 C215 62 225 150 250 235 L330 290" fill="none" stroke="#181a17" stroke-width="1.6"/>
+              <path d="M60 60 L235 60 C280 64 300 150 340 235 L460 290" fill="none" stroke="#2f6f5e" stroke-width="2.4"/>
+              <path d="M195 60 V290" stroke="#181a17" stroke-width="0.9" stroke-dasharray="3 4" opacity="0.5"/>
+              <path d="M272 60 V290" stroke="#2f6f5e" stroke-width="0.9" stroke-dasharray="3 4" opacity="0.5"/>
               <text x="188" y="52" class="t-mut" font-size="9">≈17 ДН.</text>
               <text x="265" y="52" class="t-green" font-size="9">≈30 ДН.</text>
-              <path d="M330 34 H352" stroke="#191c1a" stroke-width="1.6"/>
+              <path d="M330 34 H352" stroke="#181a17" stroke-width="1.6"/>
               <text x="358" y="38" class="t-ink" font-size="9.5">КОНТРОЛЬ</text>
-              <path d="M330 58 H352" stroke="#1c6b45" stroke-width="2.4"/>
+              <path d="M330 58 H352" stroke="#2f6f5e" stroke-width="2.4"/>
               <text x="358" y="62" class="t-ink" font-size="9.5">+ ВЕЩЕСТВО</text>
             </svg>
             <figcaption>Пилот: медианная продолжительность жизни C.&nbsp;elegans сдвинулась с ~17 до ~30 дней. Один эксперимент — требуется репликация.</figcaption>
@@ -441,10 +440,10 @@
       </div>
     </section>
 
-    <!-- 05 · КОМАНДА -->
+    <!-- 05 · ЛЮДИ -->
     <section class="sec" id="team">
       <div class="sec-head">
-        <span class="kicker">05 · Команда</span>
+        <span class="kicker">05 · Люди</span>
         <h2>Кто это делает</h2>
       </div>
       <div class="team-grid">
@@ -453,13 +452,13 @@
             <span class="mono-badge">ГМ</span>
             <div>
               <h3>Геннадий Музыкантов</h3>
-              <p class="project-tag">основатель · инженер</p>
+              <p class="project-tag">ведёт проект · тексты, модели, данные</p>
             </div>
           </div>
           <p>
-            Электроника на VHDL, реверс-инжиниринг, распределённые системы и AI. Магистратура
-            МФТИ по прикладному анализу данных в медицине. Последние 7–8 лет — биология,
-            машинное обучение и моделирование живых систем.
+            Раньше — VHDL, реверс-инжиниринг, распределённые системы и AI; сейчас — биология,
+            машинное обучение и попытка собрать воспроизводимый стенд. Магистратура МФТИ по
+            прикладному анализу данных в медицине.
           </p>
           <div class="person-links">
             <a href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer">Хабр ↗</a>
@@ -471,13 +470,12 @@
             <span class="mono-badge warm">СВ</span>
             <div>
               <h3>Сергей Ватолин</h3>
-              <p class="project-tag">научный партнёр · экспериментальный биолог</p>
+              <p class="project-tag">экспериментальная биология · старение</p>
             </div>
           </div>
           <p>
-            Занимается экспериментальной биологией и старением. Ведёт экспериментальную часть
-            программы омоложения и помогает держать инженерные аналогии в рамках биологической
-            реальности.
+            Ведёт экспериментальную часть программы омоложения и помогает не уноситься в аналогии
+            дальше, чем позволяет биология.
           </p>
           <div class="person-links">
             <a href="https://www.researchgate.net/profile/Sergei-Vatolin" target="_blank" rel="noreferrer">ResearchGate ↗</a>
@@ -490,13 +488,13 @@
     <section class="sec" id="contact">
       <div class="sec-head">
         <span class="kicker">06 · Контакты</span>
-        <h2>Поговорим</h2>
+        <h2>Написать</h2>
       </div>
       <div class="contact">
-        <a class="email" href="mailto:hello@engineeringbiology.ru">hello@engineeringbiology.ru</a>
+        <a class="email" href="mailto:g@muzykantov.me">g@muzykantov.me</a>
         <p>
-          Пишите, если хотите предложить коллаборацию, обсудить эксперимент, поставить стенд —
-          или просто задать вопрос по циклу статей.
+          Пишите, если хотите обсудить эксперимент, данные, стенд, коллаборацию — или просто
+          задать вопрос по текстам.
         </p>
         <div class="contact-links">
           <a href="https://t.me/reversebiolab" target="_blank" rel="noreferrer">Telegram · @reversebiolab ↗</a>
@@ -520,11 +518,11 @@
         </div>
       </div>
       <nav class="foot-nav" aria-label="Разделы в подвале">
-        <a href="#about">Манифест</a>
+        <a href="#about">Зачем</a>
         <a href="#approach">Подходы</a>
         <a href="#projects">Проекты</a>
         <a href="#articles">Статьи</a>
-        <a href="#team">Команда</a>
+        <a href="#team">Люди</a>
         <a href="#contact">Контакты</a>
       </nav>
     </div>
