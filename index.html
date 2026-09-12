@@ -42,7 +42,8 @@
       <a href="#contact">Контакты</a>
     </nav>
     <div class="bar-actions">
-      <button class="theme-toggle" type="button" aria-label="Включить тёмную тему" aria-pressed="false"><span aria-hidden="true">☾</span></button>
+      <input class="theme-check" id="theme-check" type="checkbox" />
+      <label class="theme-toggle" for="theme-check" role="button" aria-label="Включить тёмную тему" aria-pressed="false"><span aria-hidden="true">☾</span></label>
       <a class="btn primary small" href="mailto:g@muzykantov.me">Написать</a>
     </div>
   </header>
@@ -549,12 +550,14 @@
   <script>
     (function () {
       var root = document.documentElement;
+      var input = document.querySelector('.theme-check');
       var btn = document.querySelector('.theme-toggle');
-      if (!btn) return;
+      if (!input || !btn) return;
       var icon = btn.querySelector('span');
 
       function render(theme) {
         var dark = theme === 'dark';
+        input.checked = dark;
         btn.setAttribute('aria-pressed', String(dark));
         btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
         if (icon) icon.textContent = dark ? '☀' : '☾';
@@ -562,8 +565,8 @@
 
       render(root.dataset.theme === 'dark' ? 'dark' : 'light');
 
-      btn.addEventListener('click', function () {
-        var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      input.addEventListener('change', function () {
+        var next = input.checked ? 'dark' : 'light';
         root.dataset.theme = next;
         try { localStorage.setItem('theme', next); } catch (e) {}
         render(next);
