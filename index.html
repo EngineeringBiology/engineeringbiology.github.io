@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -10,148 +10,179 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="logo.png" />
   <link rel="icon" href="logo.png" />
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+      }
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
-
-  <header class="topbar">
+  <header class="bar">
     <a class="brand" href="#m0">
       <span class="brand-mark">ИБ</span>
-      <span class="brand-name">ИНЖЕНЕРНАЯ<br />БИОЛОГИЯ</span>
+      <span class="brand-name">ИНЖЕНЕРНАЯ БИОЛОГИЯ</span>
     </a>
-    <nav class="partnav" aria-label="Части цикла">
+    <nav class="toc" aria-label="Части цикла">
       <a href="#m0" data-nav="m0"><b>00</b> морфогенез</a>
       <a href="#m1" data-nav="m1"><b>01</b> конструкции</a>
       <a href="#m2" data-nav="m2"><b>02</b> старение</a>
       <a href="#m3" data-nav="m3"><b>03</b> онкология</a>
       <a href="#m4" data-nav="m4"><b>04</b> омоложение</a>
     </nav>
-    <a class="ext" href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer">HABR ↗</a>
+    <div class="bar-right">
+      <button class="btn icon" id="theme-toggle" aria-label="Переключить тему" title="Тема">◐</button>
+      <a class="btn ghost" href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer">HABR ↗</a>
+    </div>
   </header>
 
   <main id="top">
 
     <!-- 00 · МОРФОГЕНЕЗ -->
-    <section class="module" id="m0">
-      <div class="info">
-        <div class="idx"><span>00</span><i>морфогенез</i></div>
-        <h1>Основы биологии<br />для инженеров</h1>
-        <p class="cap">
-          Один организм, одинаковый «код» в каждой клетке, никакого центра управления.
-          Форма собирается из локальных правил. Проведите курсором по ящерке — повредите её.
-        </p>
-        <div class="controls">
-          <button class="btn primary" data-nca="damage">Повредить</button>
-          <button class="btn" data-nca="regen" aria-pressed="true">Регенерация: вкл</button>
-          <button class="btn" data-nca="reset">Заново</button>
+    <section class="module cover" id="m0">
+      <header class="mod-head masthead">
+        <div class="mh-left">
+          <div class="mh-kicker"><span>цикл</span><i>·</i><span>5 частей</span><i>·</i><span>интерактив</span></div>
+          <h1>Основы биологии<br />для инженеров</h1>
         </div>
-        <div class="readout"><span data-nca="alive">0</span> клеток · <span data-nca="state">рост</span></div>
-        <a class="read" href="https://habr.com/ru/articles/1057224/" target="_blank" rel="noreferrer">Часть 0 · читать на Хабре →</a>
-      </div>
-      <div class="stage">
-        <canvas id="c-nca"></canvas>
-        <div class="stage-tag">NCA · локальные правила</div>
+        <a class="read" href="https://habr.com/ru/articles/1057224/" target="_blank" rel="noreferrer">Часть 0 → Хабр</a>
+      </header>
+      <div class="mod-body">
+        <div class="info">
+          <p class="cap">
+            Один организм, одинаковый «код» в каждой клетке и никакого центра управления.
+            Форма собирается из локальных правил. Проведите курсором по ящерке — повредите её.
+          </p>
+          <div class="controls">
+            <button class="btn primary" data-nca="damage">Повредить</button>
+            <button class="btn" data-nca="regen" aria-pressed="true">Регенерация: вкл</button>
+            <button class="btn" data-nca="reset">Заново</button>
+          </div>
+          <div class="readout"><span data-nca="alive">0</span> клеток · <span data-nca="state">рост</span></div>
+        </div>
+        <div class="stage">
+          <canvas id="c-nca"></canvas>
+        </div>
       </div>
     </section>
 
     <!-- 01 · КОНСТРУКЦИИ -->
     <section class="module" id="m1">
-      <div class="info">
-        <div class="idx"><span>01</span><i>конструкции</i></div>
-        <h2>Белки как<br />инженерные детали</h2>
-        <p class="cap">
-          Форма определяется взаимодействиями: гидрофобное ядро, заряды, связи.
-          Потяните за мономер и отпустите — цепь свернётся обратно в рабочую форму.
-        </p>
-        <div class="controls">
-          <button class="btn primary" data-protein="heat">Денатурировать</button>
-          <button class="btn" data-protein="fold">Свернуть</button>
-          <button class="btn" data-protein="charge" aria-pressed="true">Заряды: вкл</button>
+      <header class="mod-head">
+        <span class="idx">01</span>
+        <h2>Конструкции</h2>
+        <span class="mod-tag">self-assembly · drag &amp; fold</span>
+        <a class="read" href="https://habr.com/ru/articles/1058028/" target="_blank" rel="noreferrer">Часть 1 → Хабр</a>
+      </header>
+      <div class="mod-body">
+        <div class="info">
+          <p class="cap">
+            Форма определяется взаимодействиями: гидрофобное ядро, заряды, связи.
+            Потяните за мономер и отпустите — цепь свернётся обратно в рабочую форму.
+          </p>
+          <div class="controls">
+            <button class="btn primary" data-protein="heat">Денатурировать</button>
+            <button class="btn" data-protein="fold">Свернуть</button>
+            <button class="btn" data-protein="charge" aria-pressed="true">Заряды: вкл</button>
+          </div>
+          <div class="legend">
+            <span><i class="dot hydro"></i>гидрофобные</span>
+            <span><i class="dot polar"></i>полярные</span>
+            <span><i class="dot plus"></i>+</span>
+            <span><i class="dot minus"></i>−</span>
+          </div>
         </div>
-        <div class="legend">
-          <span><i class="dot hydro"></i>гидрофобные</span>
-          <span><i class="dot polar"></i>полярные</span>
-          <span><i class="dot plus"></i>+</span>
-          <span><i class="dot minus"></i>−</span>
+        <div class="stage">
+          <canvas id="c-protein"></canvas>
         </div>
-        <a class="read" href="https://habr.com/ru/articles/1058028/" target="_blank" rel="noreferrer">Часть 1 · читать на Хабре →</a>
-      </div>
-      <div class="stage">
-        <canvas id="c-protein"></canvas>
-        <div class="stage-tag">self-assembly · drag & fold</div>
       </div>
     </section>
 
     <!-- 02 · СТАРЕНИЕ -->
     <section class="module" id="m2">
-      <div class="info">
-        <div class="idx"><span>02</span><i>старение</i></div>
-        <h2>Потеря<br />молодого аттрактора</h2>
-        <p class="cap">
-          Молодость — устойчивое состояние системы. Старение — сползание в другую яму
-          ландшафта. Запустите процесс и посмотрите, как состояние уходит от YOUNG к OLD.
-        </p>
-        <div class="controls">
-          <button class="btn primary" data-aging="live">Прожить жизнь</button>
-          <button class="btn" data-aging="reset">Вернуть в молодость</button>
+      <header class="mod-head">
+        <span class="idx">02</span>
+        <h2>Старение</h2>
+        <span class="mod-tag">attractor landscape</span>
+        <a class="read" href="https://habr.com/ru/articles/1059232/" target="_blank" rel="noreferrer">Часть 2 → Хабр</a>
+      </header>
+      <div class="mod-body">
+        <div class="info">
+          <p class="cap">
+            Молодость — устойчивое состояние системы. Старение — сползание в другую яму
+            ландшафта. Запустите процесс и посмотрите, как состояние уходит от YOUNG к OLD.
+          </p>
+          <div class="controls">
+            <button class="btn primary" data-aging="live">Прожить жизнь</button>
+            <button class="btn" data-aging="reset">Вернуть в молодость</button>
+          </div>
+          <div class="readout">состояние: <span data-aging="state">YOUNG</span> · возраст <span data-aging="age">0</span>%</div>
         </div>
-        <div class="readout">состояние: <span data-aging="state">YOUNG</span> · возраст <span data-aging="age">0</span>%</div>
-        <a class="read" href="https://habr.com/ru/articles/1059232/" target="_blank" rel="noreferrer">Часть 2 · читать на Хабре →</a>
-      </div>
-      <div class="stage">
-        <canvas id="c-aging"></canvas>
-        <div class="stage-tag">attractor landscape</div>
+        <div class="stage">
+          <canvas id="c-aging"></canvas>
+        </div>
       </div>
     </section>
 
     <!-- 03 · ОНКОЛОГИЯ -->
     <section class="module" id="m3">
-      <div class="info">
-        <div class="idx"><span>03</span><i>онкология</i></div>
-        <h2>Сломанное<br />«стоп»</h2>
-        <p class="cap">
-          Здоровые клетки останавливаются, когда вокруг достаточно соседей. Одна клетка
-          теряет контактное торможение — и делится без границы. Внесите мутацию.
-        </p>
-        <div class="controls">
-          <button class="btn primary" data-onco="mutate">Внести мутацию</button>
-          <button class="btn" data-onco="apoptosis" aria-pressed="false">Апоптоз: выкл</button>
-          <button class="btn" data-onco="therapy">Терапия</button>
-          <button class="btn" data-onco="reset">Заново</button>
+      <header class="mod-head">
+        <span class="idx">03</span>
+        <h2>Онкология</h2>
+        <span class="mod-tag">contact inhibition</span>
+        <a class="read" href="https://habr.com/ru/articles/1063044/" target="_blank" rel="noreferrer">Часть 3 → Хабр</a>
+      </header>
+      <div class="mod-body">
+        <div class="info">
+          <p class="cap">
+            Здоровые клетки останавливаются, когда вокруг достаточно соседей. Одна клетка
+            теряет контактное торможение — и делится без границы. Внесите мутацию.
+          </p>
+          <div class="controls">
+            <button class="btn primary" data-onco="mutate">Внести мутацию</button>
+            <button class="btn" data-onco="apoptosis" aria-pressed="false">Апоптоз: выкл</button>
+            <button class="btn" data-onco="therapy">Терапия</button>
+            <button class="btn" data-onco="reset">Заново</button>
+          </div>
+          <div class="readout">мутировавших: <span data-onco="count">0</span></div>
         </div>
-        <div class="readout">мутировавших: <span data-onco="count">0</span></div>
-        <a class="read" href="https://habr.com/ru/articles/1063044/" target="_blank" rel="noreferrer">Часть 3 · читать на Хабре →</a>
-      </div>
-      <div class="stage">
-        <canvas id="c-onco"></canvas>
-        <div class="stage-tag">contact inhibition</div>
+        <div class="stage">
+          <canvas id="c-onco"></canvas>
+        </div>
       </div>
     </section>
 
     <!-- 04 · ОМОЛОЖЕНИЕ -->
     <section class="module" id="m4">
-      <div class="info">
-        <div class="idx"><span>04</span><i>омоложение</i></div>
-        <h2>Развернуть<br />вектор старения</h2>
-        <p class="cap">
-          Возрастная сигнатура — это направление в пространстве генов. Каждое воздействие —
-          тоже вектор. Включайте комбинацию и смотрите, сколько сигнатуры удаётся развернуть.
-        </p>
-        <div class="controls wrap">
-          <button class="btn chip" data-rej="0">воздействие 1</button>
-          <button class="btn chip" data-rej="1">воздействие 2</button>
-          <button class="btn chip" data-rej="2">воздействие 3</button>
-          <button class="btn chip" data-rej="3">воздействие 4</button>
-          <button class="btn chip" data-rej="4">воздействие 5</button>
+      <header class="mod-head">
+        <span class="idx">04</span>
+        <h2>Омоложение</h2>
+        <span class="mod-tag">aging vector reversal</span>
+        <a class="read" href="https://habr.com/ru/articles/1078794/" target="_blank" rel="noreferrer">Часть 4 → Хабр</a>
+      </header>
+      <div class="mod-body">
+        <div class="info">
+          <p class="cap">
+            Возрастная сигнатура — направление в пространстве генов. Каждое воздействие —
+            тоже вектор. Включайте комбинацию и смотрите, сколько сигнатуры удаётся развернуть.
+          </p>
+          <div class="controls wrap">
+            <button class="btn chip" data-rej="0">воздействие 1</button>
+            <button class="btn chip" data-rej="1">воздействие 2</button>
+            <button class="btn chip" data-rej="2">воздействие 3</button>
+            <button class="btn chip" data-rej="3">воздействие 4</button>
+            <button class="btn chip" data-rej="4">воздействие 5</button>
+          </div>
+          <div class="readout big">развёрнуто <span data-rej="pct">0</span>% сигнатуры</div>
         </div>
-        <div class="readout big">развёрнуто <span data-rej="pct">0</span>% сигнатуры</div>
-        <a class="read" href="https://habr.com/ru/articles/1078794/" target="_blank" rel="noreferrer">Часть 4 · читать на Хабре →</a>
-      </div>
-      <div class="stage">
-        <canvas id="c-rej"></canvas>
-        <div class="stage-tag">aging vector reversal</div>
+        <div class="stage">
+          <canvas id="c-rej"></canvas>
+        </div>
       </div>
     </section>
 

@@ -6,6 +6,7 @@
   const TAU = Math.PI * 2;
   const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
   const mix = (a, b, t) => a + (b - a) * t;
+  const rgba = (c, a) => 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')';
 
   let _seed = 0x2f6e2b1;
   function rnd() {
@@ -13,6 +14,52 @@
     return _seed / 4294967296;
   }
 
+  /* ---------- палитры тем ---------- */
+  const DARK = {
+    glow: true,
+    empty: [16, 20, 19],
+    ncaA: [98, 232, 190],
+    ncaB: [64, 208, 128],
+    healthy: [26, 80, 62],
+    tumor: [216, 96, 54],
+    bond: 'rgba(98,201,160,0.22)',
+    hydro: '#3ec49b',
+    polarFill: 'rgba(143,154,149,0.2)',
+    polarStroke: '#8f9a95',
+    plus: '#6fc7e0',
+    minus: '#e0a35a',
+    curveA: [98, 201, 160],
+    curveB: [224, 163, 90],
+    ink: [232, 236, 234],
+    muted: [143, 154, 149],
+    dotA: [98, 201, 160],
+    dotB: [224, 163, 90],
+  };
+  const LIGHT = {
+    glow: false,
+    empty: [250, 248, 242],
+    ncaA: [20, 118, 78],
+    ncaB: [30, 148, 98],
+    healthy: [188, 214, 199],
+    tumor: [199, 80, 45],
+    bond: 'rgba(28,122,82,0.28)',
+    hydro: '#18724c',
+    polarFill: 'rgba(93,104,99,0.12)',
+    polarStroke: '#5d6863',
+    plus: '#2a7a96',
+    minus: '#b2691e',
+    curveA: [24, 114, 76],
+    curveB: [178, 105, 30],
+    ink: [23, 26, 25],
+    muted: [93, 104, 99],
+    dotA: [24, 114, 76],
+    dotB: [178, 105, 30],
+  };
+  function P() {
+    return document.documentElement.dataset.theme === 'light' ? LIGHT : DARK;
+  }
+
+  /* ---------- helpers ---------- */
   function setupCanvas(canvas) {
     const ctx = canvas.getContext('2d');
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -26,12 +73,7 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resize();
-    return {
-      ctx,
-      get w() { return w; },
-      get h() { return h; },
-      resize,
-    };
+    return { ctx, get w() { return w; }, get h() { return h; }, resize };
   }
 
   function pointer(canvas, opts) {
@@ -75,7 +117,6 @@
       let n = Math.floor(acc);
       acc -= n;
       if (n > 4) n = 4;
-      if (n < 0) n = 0;
       for (let i = 0; i < n; i++) step(1, t);
     }
     return {
@@ -117,13 +158,13 @@
     function buildTarget() {
       const cx = GW / 2, cy = GH / 2, s = GH * 0.46;
       const shapes = [
-        [0, -0.70, 0, -0.68, 0.155],        // голова
-        [0, -0.56, 0, 0.26, 0.125],         // тело
-        [0, 0.26, 0.03, 0.84, 0.04],        // хвост
-        [-0.07, -0.42, -0.46, -0.54, 0.05], // передняя лапа L
-        [0.07, -0.42, 0.46, -0.54, 0.05],   // передняя лапа R
-        [-0.07, 0.20, -0.46, 0.38, 0.055],  // задняя лапа L
-        [0.07, 0.20, 0.46, 0.38, 0.055],    // задняя лапа R
+        [0, -0.70, 0, -0.68, 0.155],
+        [0, -0.56, 0, 0.26, 0.125],
+        [0, 0.26, 0.03, 0.84, 0.04],
+        [-0.07, -0.42, -0.46, -0.54, 0.05],
+        [0.07, -0.42, 0.46, -0.54, 0.05],
+        [-0.07, 0.20, -0.46, 0.38, 0.055],
+        [0.07, 0.20, 0.46, 0.38, 0.055],
       ];
       for (let y = 0; y < GH; y++) {
         for (let x = 0; x < GW; x++) {
@@ -243,41 +284,29 @@
     }
 
     function renderNCA() {
+      const c = P();
       for (let y = 0; y < GH; y++) {
         for (let x = 0; x < GW; x++) {
           const i = y * GW + x, o = i * 4;
           const a = alive[i];
-          if (a <= 0.03) {
-            data[o] = 8; data[o + 1] = 12; data[o + 2] = 16; data[o + 3] = 255;
-            continue;
-          }
+          if (a <= 0.03) { data[o + 3] = 0; continue; }
           const t = y / GH;
-          const r0 = 90 + 40 * t;
-          const g0 = 235 - 25 * t;
-          const b0 = 200 - 70 * t;
+          const r0 = mix(c.ncaA[0], c.ncaB[0], t);
+          const g0 = mix(c.ncaA[1], c.ncaB[1], t);
+          const b0 = mix(c.ncaA[2], c.ncaB[2], t);
           const core = Math.min(1, a * 1.2);
           const edge = Math.max(0, 1 - Math.abs(a - 0.5) * 2.4);
           const seg = 0.86 + 0.14 * Math.sin(x * 0.9);
           const val = (core * 0.85 + edge * 0.5) * seg * (0.92 + 0.16 * noise[i]);
-          data[o] = clamp(r0 * val + edge * 40, 0, 255);
-          data[o + 1] = clamp(g0 * val + edge * 55, 0, 255);
-          data[o + 2] = clamp(b0 * val + edge * 45, 0, 255);
+          const hl = c.glow ? 1 : -0.35; // в светлой теме край темнее, в тёмной — светлее
+          data[o] = clamp(r0 * val + edge * 40 * hl, 0, 255);
+          data[o + 1] = clamp(g0 * val + edge * 55 * hl, 0, 255);
+          data[o + 2] = clamp(b0 * val + edge * 45 * hl, 0, 255);
           data[o + 3] = 255;
         }
       }
       octx.putImageData(img, 0, 0);
-      const ctx = view.ctx, w = view.w, h = view.h;
-      ctx.clearRect(0, 0, w, h);
-      ctx.imageSmoothingEnabled = true;
-      ctx.save();
-      ctx.globalCompositeOperation = 'lighter';
-      ctx.globalAlpha = 0.55;
-      ctx.filter = 'blur(10px)';
-      ctx.drawImage(off, 0, 0, w, h);
-      ctx.filter = 'none';
-      ctx.globalAlpha = 1;
-      ctx.drawImage(off, 0, 0, w, h);
-      ctx.restore();
+      blit(view, off, c.glow);
     }
 
     const toGX = (px) => (px / view.w) * GW;
@@ -309,6 +338,30 @@
     createLoop(canvas, () => { stepNCA(); renderNCA(); }).start();
   }
 
+  /* общий вывод пиксельной сцены со свечением (тёмная) или тенью (светлая) */
+  function blit(view, off, glow) {
+    const ctx = view.ctx, w = view.w, h = view.h;
+    ctx.clearRect(0, 0, w, h);
+    ctx.imageSmoothingEnabled = true;
+    ctx.save();
+    if (glow) {
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalAlpha = 0.55;
+      ctx.filter = 'blur(10px)';
+      ctx.drawImage(off, 0, 0, w, h);
+      ctx.filter = 'none';
+      ctx.globalAlpha = 1;
+    } else {
+      ctx.globalAlpha = 0.16;
+      ctx.filter = 'blur(9px) brightness(0)';
+      ctx.drawImage(off, 0, 0, w, h);
+      ctx.filter = 'none';
+      ctx.globalAlpha = 1;
+    }
+    ctx.drawImage(off, 0, 0, w, h);
+    ctx.restore();
+  }
+
   /* ============================================================
      01 · КОНСТРУКЦИИ — самосборка белка
      ============================================================ */
@@ -337,10 +390,8 @@
         pts.push({
           x: cx + Math.cos(ang) * rad,
           y: cy + Math.sin(ang) * rad,
-          vx: 0, vy: 0,
-          ax: 0, ay: 0,
-          type,
-          r: u * 0.012,
+          vx: 0, vy: 0, ax: 0, ay: 0,
+          type, r: u * 0.012,
         });
       }
       grabbed = -1;
@@ -426,10 +477,10 @@
     }
 
     function render() {
-      const ctx = view.ctx;
+      const ctx = view.ctx, c = P();
       ctx.clearRect(0, 0, view.w, view.h);
       ctx.lineWidth = 1.2;
-      ctx.strokeStyle = 'rgba(127,224,176,0.22)';
+      ctx.strokeStyle = c.bond;
       ctx.beginPath();
       for (let i = 0; i < N - 1; i++) {
         ctx.moveTo(pts[i].x, pts[i].y);
@@ -441,17 +492,17 @@
         const p = pts[i], r = p.r;
         ctx.beginPath();
         ctx.arc(p.x, p.y, r, 0, TAU);
-        if (p.type === 'hydro') { ctx.fillStyle = '#7fe0b0'; ctx.fill(); }
-        else if (p.type === 'polar') { ctx.fillStyle = 'rgba(140,154,161,0.2)'; ctx.strokeStyle = '#8c9aa1'; ctx.lineWidth = 1.2; ctx.fill(); ctx.stroke(); }
-        else if (p.type === 'plus') { ctx.fillStyle = '#6fc7e0'; ctx.fill(); }
-        else { ctx.fillStyle = '#e0a35a'; ctx.fill(); }
+        if (p.type === 'hydro') { ctx.fillStyle = c.hydro; ctx.fill(); }
+        else if (p.type === 'polar') { ctx.fillStyle = c.polarFill; ctx.strokeStyle = c.polarStroke; ctx.lineWidth = 1.2; ctx.fill(); ctx.stroke(); }
+        else if (p.type === 'plus') { ctx.fillStyle = c.plus; ctx.fill(); }
+        else { ctx.fillStyle = c.minus; ctx.fill(); }
       }
 
       if (grabbed >= 0) {
         const p = pts[grabbed];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * 2.6, 0, TAU);
-        ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+        ctx.strokeStyle = rgba(c.ink, 0.6);
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -531,7 +582,7 @@
     }
 
     function render() {
-      const ctx = view.ctx, w = view.w, h = view.h;
+      const ctx = view.ctx, w = view.w, h = view.h, c = P();
       ctx.clearRect(0, 0, w, h);
       const padX = w * 0.08;
       const baseY = h * 0.22;
@@ -540,9 +591,9 @@
       const Y = (vv) => baseY + (-vv) * sY;
 
       const grad = ctx.createLinearGradient(padX, 0, w - padX, 0);
-      grad.addColorStop(0, '#7fe0b0');
-      grad.addColorStop(0.5, '#8c9aa1');
-      grad.addColorStop(1, '#e0a35a');
+      grad.addColorStop(0, rgba(c.curveA, 1));
+      grad.addColorStop(0.5, rgba(c.muted, 1));
+      grad.addColorStop(1, rgba(c.curveB, 1));
 
       const M = 260;
       ctx.beginPath();
@@ -554,7 +605,7 @@
       ctx.lineTo(X(1.15), h);
       ctx.lineTo(X(-1.15), h);
       ctx.closePath();
-      ctx.fillStyle = 'rgba(127,224,176,0.05)';
+      ctx.fillStyle = rgba(c.curveA, 0.06);
       ctx.fill();
 
       ctx.beginPath();
@@ -570,25 +621,27 @@
       ctx.font = '11px ui-monospace, monospace';
       ctx.textAlign = 'center';
       const yp = Y(V(-0.55, age)), op = Y(V(0.5, age));
-      ctx.fillStyle = 'rgba(127,224,176,0.85)';
+      ctx.fillStyle = rgba(c.curveA, 0.9);
       ctx.fillText('YOUNG', X(-0.55), yp + 22);
-      ctx.fillStyle = 'rgba(224,163,90,0.85)';
+      ctx.fillStyle = rgba(c.curveB, 0.9);
       ctx.fillText('OLD', X(0.5), op + 22);
 
       const bx = X(x), by = Y(V(x, age));
-      const glow = ctx.createRadialGradient(bx, by, 0, bx, by, 26);
-      glow.addColorStop(0, 'rgba(255,255,255,0.5)');
-      glow.addColorStop(0.3, 'rgba(127,224,176,0.35)');
-      glow.addColorStop(1, 'rgba(127,224,176,0)');
-      ctx.fillStyle = glow;
-      ctx.beginPath();
-      ctx.arc(bx, by, 26, 0, TAU);
-      ctx.fill();
+      if (c.glow) {
+        const glow = ctx.createRadialGradient(bx, by, 0, bx, by, 26);
+        glow.addColorStop(0, rgba(c.ink, 0.5));
+        glow.addColorStop(0.3, rgba(c.curveA, 0.35));
+        glow.addColorStop(1, rgba(c.curveA, 0));
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(bx, by, 26, 0, TAU);
+        ctx.fill();
+      }
       ctx.beginPath();
       ctx.arc(bx, by, 9, 0, TAU);
-      ctx.fillStyle = '#eef3f2';
+      ctx.fillStyle = rgba(c.ink, 1);
       ctx.fill();
-      ctx.strokeStyle = 'rgba(127,224,176,0.9)';
+      ctx.strokeStyle = rgba(c.curveA, 0.9);
       ctx.lineWidth = 2;
       ctx.stroke();
     }
@@ -613,7 +666,7 @@
     const view = setupCanvas(canvas);
     let GW = 0, GH = 0, N = 0;
     let cells, noise, off, octx, img, data;
-    let apoptosis = false, mutated = 0;
+    let apoptosis = false;
     const elCount = document.querySelector('[data-onco="count"]');
 
     function build() {
@@ -633,7 +686,6 @@
           if (d < edge) cells[y * GW + x] = 1;
         }
       }
-      mutated = 0;
       off = document.createElement('canvas');
       off.width = GW; off.height = GH;
       octx = off.getContext('2d');
@@ -684,43 +736,35 @@
 
       let c = 0;
       for (let i = 0; i < N; i++) if (cells[i] === 2) c++;
-      mutated = c;
       if (elCount) elCount.textContent = c;
     }
 
     function render() {
+      const c = P();
       for (let y = 0; y < GH; y++) {
         for (let x = 0; x < GW; x++) {
           const i = y * GW + x, o = i * 4;
           const st = cells[i];
           const nz = noise[i];
           if (st === 0) {
-            data[o] = 8; data[o + 1] = 12; data[o + 2] = 16; data[o + 3] = 255;
+            data[o + 3] = 0;
           } else if (st === 1) {
-            const v = 0.75 + 0.35 * nz;
-            data[o] = 26 * v; data[o + 1] = 78 * v; data[o + 2] = 60 * v; data[o + 3] = 255;
+            const v = 0.82 + 0.3 * nz;
+            data[o] = clamp(c.healthy[0] * v, 0, 255);
+            data[o + 1] = clamp(c.healthy[1] * v, 0, 255);
+            data[o + 2] = clamp(c.healthy[2] * v, 0, 255);
+            data[o + 3] = 255;
           } else {
             const v = 0.7 + 0.6 * nz;
-            data[o] = clamp(215 * v, 0, 255);
-            data[o + 1] = clamp(95 * v, 0, 255);
-            data[o + 2] = clamp(55 * v, 0, 255);
+            data[o] = clamp(c.tumor[0] * v, 0, 255);
+            data[o + 1] = clamp(c.tumor[1] * v, 0, 255);
+            data[o + 2] = clamp(c.tumor[2] * v, 0, 255);
             data[o + 3] = 255;
           }
         }
       }
       octx.putImageData(img, 0, 0);
-      const ctx = view.ctx, w = view.w, h = view.h;
-      ctx.clearRect(0, 0, w, h);
-      ctx.imageSmoothingEnabled = true;
-      ctx.save();
-      ctx.globalCompositeOperation = 'lighter';
-      ctx.globalAlpha = 0.4;
-      ctx.filter = 'blur(8px)';
-      ctx.drawImage(off, 0, 0, w, h);
-      ctx.filter = 'none';
-      ctx.globalAlpha = 1;
-      ctx.drawImage(off, 0, 0, w, h);
-      ctx.restore();
+      blit(view, off, c.glow);
     }
 
     const toGX = (px) => (px / view.w) * GW;
@@ -743,8 +787,6 @@
           btn.textContent = 'Апоптоз: ' + (apoptosis ? 'вкл' : 'выкл');
         } else if (act === 'therapy') {
           for (let i = 0; i < N; i++) if (cells[i] === 2) cells[i] = 0;
-          mutated = 0;
-          if (elCount) elCount.textContent = 0;
         } else if (act === 'reset') {
           build();
         }
@@ -809,27 +851,27 @@
     }
 
     function render() {
-      const ctx = view.ctx, w = view.w, h = view.h;
+      const ctx = view.ctx, w = view.w, h = view.h, c = P();
       ctx.clearRect(0, 0, w, h);
 
       const rg = ctx.createRadialGradient(oldX, cy, 0, oldX, cy, w * 0.22);
-      rg.addColorStop(0, 'rgba(224,163,90,0.10)');
-      rg.addColorStop(1, 'rgba(224,163,90,0)');
+      rg.addColorStop(0, rgba(c.dotB, c.glow ? 0.10 : 0.14));
+      rg.addColorStop(1, rgba(c.dotB, 0));
       ctx.fillStyle = rg;
       ctx.beginPath(); ctx.arc(oldX, cy, w * 0.22, 0, TAU); ctx.fill();
 
       const yg = ctx.createRadialGradient(youngX, cy, 0, youngX, cy, w * 0.22);
-      yg.addColorStop(0, 'rgba(127,224,176,0.12)');
-      yg.addColorStop(1, 'rgba(127,224,176,0)');
+      yg.addColorStop(0, rgba(c.dotA, c.glow ? 0.12 : 0.16));
+      yg.addColorStop(1, rgba(c.dotA, 0));
       ctx.fillStyle = yg;
       ctx.beginPath(); ctx.arc(youngX, cy, w * 0.22, 0, TAU); ctx.fill();
 
       for (const d of dots) {
         const t = clamp((d.x - oldX) / (youngX - oldX), 0, 1);
-        const r = Math.round(mix(224, 127, t));
-        const g = Math.round(mix(163, 224, t));
-        const b = Math.round(mix(90, 176, t));
-        ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + (0.35 + 0.5 * t) + ')';
+        const r = Math.round(mix(c.dotB[0], c.dotA[0], t));
+        const g = Math.round(mix(c.dotB[1], c.dotA[1], t));
+        const b = Math.round(mix(c.dotB[2], c.dotA[2], t));
+        ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + (0.4 + 0.5 * t) + ')';
         ctx.beginPath();
         ctx.arc(d.x, d.y, 2.1, 0, TAU);
         ctx.fill();
@@ -837,18 +879,18 @@
 
       ctx.font = '11px ui-monospace, monospace';
       ctx.textAlign = 'center';
-      ctx.fillStyle = 'rgba(127,224,176,0.9)';
+      ctx.fillStyle = rgba(c.dotA, 0.95);
       ctx.fillText('YOUNG', youngX, cy + h * 0.34);
-      ctx.fillStyle = 'rgba(224,163,90,0.9)';
+      ctx.fillStyle = rgba(c.dotB, 0.95);
       ctx.fillText('OLD', oldX, cy + h * 0.34);
 
-      ctx.strokeStyle = 'rgba(224,163,90,0.6)';
+      ctx.strokeStyle = rgba(c.dotB, 0.6);
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(youngX + w * 0.06, cy - h * 0.36);
       ctx.lineTo(oldX + w * 0.06, cy - h * 0.36);
       ctx.stroke();
-      ctx.fillStyle = 'rgba(224,163,90,0.9)';
+      ctx.fillStyle = rgba(c.dotB, 0.95);
       ctx.textAlign = 'left';
       ctx.fillText('AGING VECTOR →', youngX + w * 0.06, cy - h * 0.36 - 8);
 
@@ -857,7 +899,7 @@
         const iv = intervention(i);
         const sx = oldX, sy = cy + (i - 2) * h * 0.05;
         const ex = sx + iv.x, ey = sy + iv.y;
-        ctx.strokeStyle = 'rgba(127,224,176,0.75)';
+        ctx.strokeStyle = rgba(c.dotA, 0.75);
         ctx.lineWidth = 1.6;
         ctx.beginPath();
         ctx.moveTo(sx, sy);
@@ -869,7 +911,7 @@
         ctx.lineTo(ex - 7 * Math.cos(ang - 0.4), ey - 7 * Math.sin(ang - 0.4));
         ctx.lineTo(ex - 7 * Math.cos(ang + 0.4), ey - 7 * Math.sin(ang + 0.4));
         ctx.closePath();
-        ctx.fillStyle = 'rgba(127,224,176,0.85)';
+        ctx.fillStyle = rgba(c.dotA, 0.9);
         ctx.fill();
       }
     }
@@ -888,10 +930,10 @@
   }
 
   /* ============================================================
-     NAV
+     NAV + THEME
      ============================================================ */
   function initNav() {
-    const links = Array.from(document.querySelectorAll('.partnav a'));
+    const links = Array.from(document.querySelectorAll('.toc a'));
     const secs = Array.from(document.querySelectorAll('.module'));
     if (!links.length || !secs.length) return;
     const io = new IntersectionObserver((es) => {
@@ -904,6 +946,20 @@
     secs.forEach((s) => io.observe(s));
   }
 
+  function initTheme() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    const cur = () => (document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
+    const paint = () => { btn.textContent = cur() === 'light' ? '☾' : '☀'; };
+    btn.addEventListener('click', () => {
+      const next = cur() === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  }
+
   function boot() {
     initNCA();
     initProtein();
@@ -911,6 +967,7 @@
     initOnco();
     initRej();
     initNav();
+    initTheme();
   }
 
   if (document.readyState === 'loading') {
