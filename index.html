@@ -1,188 +1,510 @@
 <!doctype html>
-<html lang="ru" data-theme="dark">
+<html lang="ru">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Инженерная биология — Основы биологии для инженеров</title>
-  <meta name="description" content="Интерактивный цикл «Основы биологии для инженеров»: морфогенез, белки, старение, онкология, омоложение — как вычислительные и инженерные системы." />
-  <meta property="og:title" content="Инженерная биология" />
-  <meta property="og:description" content="Интерактивный цикл «Основы биологии для инженеров»: живые системы как вычислительные и инженерные конструкции." />
+  <title>Инженерная биология — исследовательская студия</title>
+  <meta name="description" content="Инженерная биология — исследовательская студия. Применяем реверс-инжиниринг, математические модели и воспроизводимый эксперимент к живым системам: от белков до старения." />
+  <meta property="og:title" content="Инженерная биология — исследовательская студия" />
+  <meta property="og:description" content="Реверс-инжиниринг, модели и эксперимент против сложности живых систем." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="logo.png" />
   <link rel="icon" href="logo.png" />
-  <script>
-    (function () {
-      var t;
-      try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t !== 'light' && t !== 'dark') {
-        t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
-      }
-      document.documentElement.dataset.theme = t;
-    })();
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
+
   <header class="bar">
-    <a class="brand" href="#m0">
+    <a class="brand" href="#top">
       <span class="brand-mark">ИБ</span>
-      <span class="brand-name">ИНЖЕНЕРНАЯ БИОЛОГИЯ</span>
+      <span class="brand-name">ИНЖЕНЕРНАЯ<br />БИОЛОГИЯ</span>
     </a>
-    <nav class="toc" aria-label="Части цикла">
-      <a href="#m0" data-nav="m0"><b>00</b> морфогенез</a>
-      <a href="#m1" data-nav="m1"><b>01</b> конструкции</a>
-      <a href="#m2" data-nav="m2"><b>02</b> старение</a>
-      <a href="#m3" data-nav="m3"><b>03</b> онкология</a>
-      <a href="#m4" data-nav="m4"><b>04</b> омоложение</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#approach">Подходы</a>
+      <a href="#projects">Проекты</a>
+      <a href="#articles">Статьи</a>
+      <a href="#team">Команда</a>
+      <a href="#contact">Контакты</a>
     </nav>
-    <div class="bar-right">
-      <button class="btn icon" id="theme-toggle" aria-label="Переключить тему" title="Тема">◐</button>
-      <a class="btn ghost" href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer">HABR ↗</a>
-    </div>
+    <a class="btn primary small" href="mailto:hello@engineeringbiology.ru">Написать нам</a>
   </header>
 
   <main id="top">
 
-    <!-- 00 · МОРФОГЕНЕЗ -->
-    <section class="module cover" id="m0">
-      <header class="mod-head masthead">
-        <div class="mh-left">
-          <div class="mh-kicker"><span>цикл</span><i>·</i><span>5 частей</span><i>·</i><span>интерактив</span></div>
-          <h1>Основы биологии<br />для инженеров</h1>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="kicker">Исследовательская студия · реверс-инжиниринг живых систем</div>
+        <h1>Инженерная<br />биология</h1>
+        <p class="lead">
+          Мы рассматриваем клетки, белки и организмы как инженерные системы — и применяем
+          к ним те же практики, что к железу и софту: модели, гипотезы, тесты и воспроизводимость.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#approach">Как мы работаем</a>
+          <a class="btn" href="#projects">Проекты</a>
         </div>
-        <a class="read" href="https://habr.com/ru/articles/1057224/" target="_blank" rel="noreferrer">Часть 0 → Хабр</a>
-      </header>
-      <div class="mod-body">
-        <div class="info">
-          <p class="cap">
-            Один организм, одинаковый «код» в каждой клетке и никакого центра управления.
-            Форма собирается из локальных правил. Проведите курсором по ящерке — повредите её.
+        <ul class="stats">
+          <li><b>05</b><span>частей открытого цикла</span></li>
+          <li><b>205 034</b><span>транскриптомных профиля просеяно</span></li>
+          <li><b>+76%</b><span>медианная продолжительность жизни в пилоте C.&nbsp;elegans</span></li>
+        </ul>
+      </div>
+      <figure class="fig hero-fig">
+        <svg viewBox="0 0 560 340" role="img" aria-label="Контур исследования: система, модель, гипотеза, эксперимент">
+          <defs>
+            <marker id="m1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#191c1a"/></marker>
+          </defs>
+          <path d="M14 24 V14 H24" class="s-ink" stroke-width="1.4"/>
+          <path d="M536 24 V14 H546" class="s-ink" stroke-width="1.4"/>
+          <path d="M14 316 V326 H24" class="s-ink" stroke-width="1.4"/>
+          <path d="M536 316 V326 H546" class="s-ink" stroke-width="1.4"/>
+          <g font-size="10.5">
+            <rect x="30" y="130" width="100" height="56" rx="3" class="f-card s-ink" stroke-width="1.4"/>
+            <text x="80" y="162" text-anchor="middle" class="t-ink">СИСТЕМА</text>
+            <rect x="165" y="130" width="100" height="56" rx="3" class="f-card s-ink" stroke-width="1.4"/>
+            <text x="215" y="162" text-anchor="middle" class="t-ink">МОДЕЛЬ</text>
+            <rect x="300" y="130" width="100" height="56" rx="3" class="f-card s-ink" stroke-width="1.4"/>
+            <text x="350" y="162" text-anchor="middle" class="t-ink">ГИПОТЕЗА</text>
+            <rect x="435" y="130" width="100" height="56" rx="3" class="f-card s-ink" stroke-width="1.4"/>
+            <text x="485" y="162" text-anchor="middle" class="t-ink">ЭКСПЕРИМЕНТ</text>
+          </g>
+          <path d="M130 158 H163" class="s-ink" stroke-width="1.4" marker-end="url(#m1)"/>
+          <path d="M265 158 H298" class="s-ink" stroke-width="1.4" marker-end="url(#m1)"/>
+          <path d="M400 158 H433" class="s-ink" stroke-width="1.4" marker-end="url(#m1)"/>
+          <path d="M485 186 V240 H215 V190" class="s-ink" stroke-width="1.4" marker-end="url(#m1)" stroke-dasharray="4 3"/>
+          <text x="350" y="260" text-anchor="middle" class="t-mut" font-size="9.5">ДАННЫЕ → МОДЕЛЬ</text>
+        </svg>
+        <figcaption>Контур исследования. Ни один шаг не считается законченным, пока результат не воспроизведён.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 01 · МАНИФЕСТ -->
+    <section class="sec" id="about">
+      <div class="sec-head">
+        <span class="kicker">01 · Манифест</span>
+        <h2>Зачем всё это</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>
+            Биология сегодня — море данных: геномы, транскриптомы, структуры белков, скрининги
+            веществ. Но данные сами по себе не превращаются в понимание. Разработки в биотехе
+            занимают не годы, а десятилетия, и многое остаётся неструктурированным.
           </p>
-          <div class="controls">
-            <button class="btn primary" data-nca="damage">Повредить</button>
-            <button class="btn" data-nca="regen" aria-pressed="true">Регенерация: вкл</button>
-            <button class="btn" data-nca="reset">Заново</button>
-          </div>
-          <div class="readout"><span data-nca="alive">0</span> клеток · <span data-nca="state">рост</span></div>
+          <p>
+            Мы считаем, что живым системам не хватает инженерной культуры: модели до эксперимента,
+            явной гипотезы, воспроизводимого стенда и открытого протокола. Поэтому мы приносим в
+            биологию подходы, которые десятилетиями оттачивались в ИТ и инженерии.
+          </p>
+          <p>
+            Стартовая задача — старение и омоложение. Это самая сложная система управления из
+            известных: если мы научимся понимать её — научимся многому.
+          </p>
+          <p class="fine">
+            Мы не обещаем «лекарство от старости». Мы строим метод, публикуем модели, данные и
+            протоколы — и проверяем всё на живых системах.
+          </p>
         </div>
-        <div class="stage">
-          <canvas id="c-nca"></canvas>
-        </div>
+        <figure class="pullquote">
+          <blockquote>
+            Живое — это распределённая вычислительная система, которую никто не проектировал
+            целиком. Задача инженера — разобраться, как она устроена, и научиться ею управлять.
+          </blockquote>
+          <figcaption>Геннадий Музыкантов, основатель студии</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 01 · КОНСТРУКЦИИ -->
-    <section class="module" id="m1">
-      <header class="mod-head">
-        <span class="idx">01</span>
-        <h2>Конструкции</h2>
-        <span class="mod-tag">self-assembly · drag &amp; fold</span>
-        <a class="read" href="https://habr.com/ru/articles/1058028/" target="_blank" rel="noreferrer">Часть 1 → Хабр</a>
-      </header>
-      <div class="mod-body">
-        <div class="info">
-          <p class="cap">
-            Форма определяется взаимодействиями: гидрофобное ядро, заряды, связи.
-            Потяните за мономер и отпустите — цепь свернётся обратно в рабочую форму.
-          </p>
-          <div class="controls">
-            <button class="btn primary" data-protein="heat">Денатурировать</button>
-            <button class="btn" data-protein="fold">Свернуть</button>
-            <button class="btn" data-protein="charge" aria-pressed="true">Заряды: вкл</button>
+    <!-- 02 · ПОДХОДЫ -->
+    <section class="sec" id="approach">
+      <div class="sec-head">
+        <span class="kicker">02 · Подход</span>
+        <h2>Как мы работаем</h2>
+        <p class="sec-intro">
+          Любую сложную систему мы раскапываем с двух сторон одновременно: сверху вниз — от
+          поведения целого к деталям реализации, и снизу вверх — от отдельных механизмов к общим
+          принципам. Ниже — шесть рабочих приёмов.
+        </p>
+      </div>
+
+      <div class="ap-list">
+
+        <article class="ap">
+          <div class="ap-num">01</div>
+          <div class="ap-body">
+            <h3>Реверс-инжиниринг живых систем</h3>
+            <p>
+              Сверху вниз: смотрим на поведение системы целиком и спускаемся к реализации.
+              Снизу вверх: берём конкретную деталь, понимаем механизм, собираем картину.
+              Когда два направления сходятся в одной точке — это признак, что модель верна.
+            </p>
           </div>
-          <div class="legend">
-            <span><i class="dot hydro"></i>гидрофобные</span>
-            <span><i class="dot polar"></i>полярные</span>
-            <span><i class="dot plus"></i>+</span>
-            <span><i class="dot minus"></i>−</span>
+          <figure class="fig">
+            <svg viewBox="0 0 560 340" role="img" aria-label="Два направления реверс-инжиниринга">
+              <defs>
+                <marker id="m2a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#191c1a"/></marker>
+              </defs>
+              <rect x="140" y="28" width="280" height="54" rx="3" class="f-card s-ink" stroke-width="1.4"/>
+              <text x="280" y="60" text-anchor="middle" class="t-ink" font-size="11">ПОВЕДЕНИЕ СИСТЕМЫ</text>
+              <rect x="140" y="143" width="280" height="54" rx="3" class="f-green s-green" stroke-width="1.4"/>
+              <text x="280" y="175" text-anchor="middle" class="t-paper" font-size="11">ЖИВАЯ СИСТЕМА</text>
+              <rect x="140" y="258" width="280" height="54" rx="3" class="f-card s-ink" stroke-width="1.4"/>
+              <text x="280" y="290" text-anchor="middle" class="t-ink" font-size="11">МОЛЕКУЛЯРНЫЕ МЕХАНИЗМЫ</text>
+              <path d="M280 82 V141" class="s-ink" stroke-width="1.4" marker-end="url(#m2a)"/>
+              <text x="292" y="106" class="t-ink" font-size="9.5">СВЕРХУ ВНИЗ</text>
+              <text x="292" y="120" class="t-mut" font-size="9.5">поведение → реализация</text>
+              <path d="M280 258 V199" class="s-ink" stroke-width="1.4" marker-end="url(#m2a)"/>
+              <text x="292" y="224" class="t-ink" font-size="9.5">СНИЗУ ВВЕРХ</text>
+              <text x="292" y="238" class="t-mut" font-size="9.5">детали → принципы</text>
+            </svg>
+          </figure>
+        </article>
+
+        <article class="ap">
+          <div class="ap-num">02</div>
+          <div class="ap-body">
+            <h3>Клетка — вычислительный узел</h3>
+            <p>
+              Клетка принимает сигналы — по преимуществу биоэлектрические, меняет внутреннее
+              состояние и отвечает действием или сигналом соседям. ДНК — библиотека
+              скомпилированного кода, одинаковая во всех клетках; различается лишь то, какие её
+              участки активны. Сложное поведение организма — эмерджентный эффект одинаковых
+              локальных программ: никакой клетки-директора не существует.
+            </p>
           </div>
-        </div>
-        <div class="stage">
-          <canvas id="c-protein"></canvas>
-        </div>
+          <figure class="fig">
+            <svg viewBox="0 0 560 340" role="img" aria-label="Сеть клеток без центра управления">
+              <g stroke="rgba(25,28,26,0.10)" stroke-width="1">
+                <path d="M106 48 H172 M238 48 H304 M370 48 H436 M502 48 H508"/>
+                <path d="M106 106 H172 M238 106 H304 M370 106 H436"/>
+                <path d="M106 164 H172 M304 164 H370 M436 164 H502"/>
+                <path d="M106 222 H172 M238 222 H304 M370 222 H436 M502 222 H508"/>
+                <path d="M106 280 H172 M238 280 H304 M370 280 H436"/>
+                <path d="M106 48 V106 M106 106 V164 M106 164 V222 M106 222 V280"/>
+                <path d="M172 48 V106 M172 106 V164 M172 164 V222 M172 222 V280"/>
+                <path d="M238 48 V106 M238 106 V164 M238 164 V222 M238 222 V280"/>
+                <path d="M304 48 V106 M304 106 V164 M304 164 V222 M304 222 V280"/>
+                <path d="M370 48 V106 M370 106 V164 M370 164 V222 M370 222 V280"/>
+                <path d="M436 48 V106 M436 106 V164 M436 164 V222 M436 222 V280"/>
+                <path d="M502 48 V106 M502 106 V164 M502 164 V222 M502 222 V280"/>
+              </g>
+              <g fill="#fdfbf6" stroke="#c9ccc6" stroke-width="1.2">
+                <circle cx="106" cy="48" r="9"/><circle cx="172" cy="48" r="9"/><circle cx="238" cy="48" r="9"/><circle cx="304" cy="48" r="9"/><circle cx="370" cy="48" r="9"/><circle cx="436" cy="48" r="9"/><circle cx="502" cy="48" r="9"/>
+                <circle cx="106" cy="106" r="9"/><circle cx="172" cy="106" r="9"/><circle cx="238" cy="106" r="9"/><circle cx="304" cy="106" r="9"/><circle cx="370" cy="106" r="9"/><circle cx="436" cy="106" r="9"/><circle cx="502" cy="106" r="9"/>
+                <circle cx="106" cy="164" r="9"/><circle cx="172" cy="164" r="9"/><circle cx="238" cy="164" r="9"/><circle cx="370" cy="164" r="9"/><circle cx="436" cy="164" r="9"/><circle cx="502" cy="164" r="9"/>
+                <circle cx="106" cy="222" r="9"/><circle cx="172" cy="222" r="9"/><circle cx="238" cy="222" r="9"/><circle cx="304" cy="222" r="9"/><circle cx="436" cy="222" r="9"/><circle cx="502" cy="222" r="9"/>
+                <circle cx="106" cy="280" r="9"/><circle cx="172" cy="280" r="9"/><circle cx="238" cy="280" r="9"/><circle cx="304" cy="280" r="9"/><circle cx="370" cy="280" r="9"/><circle cx="436" cy="280" r="9"/><circle cx="502" cy="280" r="9"/>
+              </g>
+              <path d="M238 164 H296" stroke="#1c6b45" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <path d="M304 164 V214" stroke="#1c6b45" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <path d="M304 222 H362" stroke="#1c6b45" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <circle cx="238" cy="164" r="9" fill="#1c6b45"/>
+              <circle cx="238" cy="164" r="15" fill="none" stroke="#1c6b45" stroke-width="1" opacity="0.45"/>
+              <circle cx="304" cy="164" r="9" fill="#fdfbf6" stroke="#b45309" stroke-width="1.4"/>
+              <circle cx="304" cy="164" r="3" fill="#b45309"/>
+              <circle cx="304" cy="222" r="9" fill="#fdfbf6" stroke="#b45309" stroke-width="1.4"/>
+              <circle cx="304" cy="222" r="3" fill="#b45309"/>
+              <circle cx="370" cy="222" r="9" fill="#fdfbf6" stroke="#b45309" stroke-width="1.4"/>
+              <circle cx="370" cy="222" r="3" fill="#b45309"/>
+              <text x="280" y="330" text-anchor="middle" class="t-mut" font-size="9.5">ЭМЕРДЖЕНТНОСТЬ: НИКАКОГО ЦЕНТРА УПРАВЛЕНИЯ — ТОЛЬКО ЛОКАЛЬНЫЕ ПРАВИЛА</text>
+            </svg>
+          </figure>
+        </article>
+
+        <article class="ap">
+          <div class="ap-num">03</div>
+          <div class="ap-body">
+            <h3>Модель раньше эксперимента</h3>
+            <p>
+              Прежде чем тратить недели живого стенда, мы строим математическую модель. Клеточные
+              автоматы показывают, как из локальных правил вырастает форма и как она
+              восстанавливается после повреждений. Старение мы моделируем как потерю целевого
+              состояния: после завершения роста система теряет «молодой аттрактор» и сползает в
+              квазипрограмму старения.
+            </p>
+          </div>
+          <figure class="fig">
+            <svg viewBox="0 0 560 340" role="img" aria-label="Ландшафт аттракторов: молодой и старый">
+              <defs>
+                <marker id="m4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#b45309"/></marker>
+              </defs>
+              <path d="M40 150 C100 88 200 92 250 148 C290 194 320 194 360 150 C410 104 470 112 520 140 L520 320 L40 320 Z" fill="rgba(28,107,69,0.06)"/>
+              <path d="M40 150 C100 88 200 92 250 148 C290 194 320 194 360 150 C410 104 470 112 520 140" class="s-ink" stroke-width="2"/>
+              <circle cx="150" cy="112" r="10" fill="#1c6b45" stroke="#f6f3ec" stroke-width="2.5"/>
+              <circle cx="440" cy="122" r="10" fill="none" stroke="#b45309" stroke-width="1.6" stroke-dasharray="4 3"/>
+              <text x="150" y="86" text-anchor="middle" class="t-green" font-size="10.5">YOUNG</text>
+              <text x="440" y="86" text-anchor="middle" class="t-amber" font-size="10.5">OLD</text>
+              <path d="M150 232 H398" class="s-amber" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#m4)"/>
+              <text x="280" y="218" text-anchor="middle" class="t-mut" font-size="9.5">СТАРЕНИЕ — СПОЛЗАНИЕ К ДРУГОМУ АТТРАКТОРУ</text>
+            </svg>
+          </figure>
+        </article>
+
+        <article class="ap">
+          <div class="ap-num">04</div>
+          <div class="ap-body">
+            <h3>Состояние — это вектор</h3>
+            <p>
+              Транскриптом клетки — тысячи чисел, по одному на ген. Это точка в многомерном
+              пространстве: вектор состояния. Разница между молодым и старым состоянием задаёт
+              направление старения: AGING = OLD − YOUNG. Задача омоложения превращается в
+              инженерную: найти воздействие, которое толкает систему в противоположную сторону.
+              Сигнатуру C.&nbsp;elegans мы переводим в человеческие ортологи через g:Profiler —
+              эволюция сохранила древние механизмы достаточно хорошо, чтобы перевод имел смысл.
+            </p>
+          </div>
+          <figure class="fig">
+            <svg viewBox="0 0 560 340" role="img" aria-label="Вектор старения между двумя состояниями">
+              <defs>
+                <marker id="m5a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#191c1a"/></marker>
+                <marker id="m5b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1c6b45"/></marker>
+              </defs>
+              <ellipse cx="140" cy="150" rx="66" ry="48" fill="rgba(28,107,69,0.06)"/>
+              <ellipse cx="420" cy="150" rx="66" ry="48" fill="rgba(180,83,9,0.06)"/>
+              <g fill="#1c6b45">
+                <circle cx="108" cy="140" r="3"/><circle cx="122" cy="164" r="3"/><circle cx="140" cy="130" r="3"/><circle cx="158" cy="162" r="3"/><circle cx="176" cy="146" r="3"/><circle cx="128" cy="120" r="3"/><circle cx="150" cy="116" r="3"/><circle cx="168" cy="128" r="3"/><circle cx="100" cy="160" r="3"/><circle cx="156" cy="180" r="3"/><circle cx="136" cy="180" r="3"/><circle cx="112" cy="122" r="3"/><circle cx="182" cy="166" r="3"/><circle cx="124" cy="142" r="3"/>
+              </g>
+              <g fill="#b45309">
+                <circle cx="390" cy="138" r="3"/><circle cx="402" cy="164" r="3"/><circle cx="420" cy="132" r="3"/><circle cx="438" cy="162" r="3"/><circle cx="454" cy="146" r="3"/><circle cx="410" cy="120" r="3"/><circle cx="430" cy="118" r="3"/><circle cx="448" cy="128" r="3"/><circle cx="384" cy="158" r="3"/><circle cx="436" cy="178" r="3"/><circle cx="416" cy="180" r="3"/><circle cx="394" cy="120" r="3"/><circle cx="460" cy="164" r="3"/><circle cx="406" cy="142" r="3"/>
+              </g>
+              <path d="M176 150 H378" class="s-ink" stroke-width="2" marker-end="url(#m5a)"/>
+              <text x="280" y="134" text-anchor="middle" class="t-ink" font-size="10.5">AGING = OLD − YOUNG</text>
+              <path d="M384 186 H182" class="s-green" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m5b)"/>
+              <text x="280" y="204" text-anchor="middle" class="t-mut" font-size="9.5">ВОЗДЕЙСТВИЕ — В ОБРАТНУЮ СТОРОНУ</text>
+              <text x="140" y="224" text-anchor="middle" class="t-green" font-size="10.5">YOUNG</text>
+              <text x="420" y="224" text-anchor="middle" class="t-amber" font-size="10.5">OLD</text>
+            </svg>
+          </figure>
+        </article>
+
+        <article class="ap">
+          <div class="ap-num">05</div>
+          <div class="ap-body">
+            <h3>Комбинация воздействий</h3>
+            <p>
+              Одно вещество не развернёт всю сигнатуру. Мы просеиваем экспериментальные профили
+              LINCS/CMap — 205&nbsp;034 транскриптомных ответа на 19&nbsp;811 соединений — и собираем
+              комбинации, которые покрывают возрастную сигнатуру всё полнее: 56% → 73% → 92% →
+              97% → 98,5%. Важно: 98,5% на компьютере — это не 98,5% омоложения. Это гипотеза,
+              которую нужно проверить на живом.
+            </p>
+          </div>
+          <figure class="fig">
+            <svg viewBox="0 0 560 340" role="img" aria-label="Покрытие возрастной сигнатуры комбинацией веществ">
+              <text x="110" y="26" class="t-ink" font-size="10.5">ПОКРЫТИЕ ВОЗРАСТНОЙ СИГНАТУРЫ КОМБИНАЦИЕЙ</text>
+              <g font-size="10">
+                <text x="100" y="63" text-anchor="end" class="t-mut">1</text>
+                <text x="100" y="111" text-anchor="end" class="t-mut">2</text>
+                <text x="100" y="159" text-anchor="end" class="t-mut">3</text>
+                <text x="100" y="207" text-anchor="end" class="t-mut">4</text>
+                <text x="100" y="255" text-anchor="end" class="t-mut">5</text>
+              </g>
+              <g>
+                <rect x="110" y="44" width="227" height="28" fill="#1c6b45" opacity="0.40"/>
+                <rect x="110" y="92" width="296" height="28" fill="#1c6b45" opacity="0.55"/>
+                <rect x="110" y="140" width="374" height="28" fill="#1c6b45" opacity="0.70"/>
+                <rect x="110" y="188" width="394" height="28" fill="#1c6b45" opacity="0.85"/>
+                <rect x="110" y="236" width="400" height="28" fill="#1c6b45"/>
+              </g>
+              <g font-size="10.5">
+                <text x="345" y="63" class="t-mut">56%</text>
+                <text x="414" y="111" class="t-mut">73%</text>
+                <text x="492" y="159" class="t-mut">92%</text>
+                <text x="512" y="207" class="t-mut">97%</text>
+                <text x="518" y="255" class="t-green">98,5%</text>
+              </g>
+              <text x="110" y="298" class="t-mut" font-size="9.5">ВЕЩЕСТВА ДОБАВЛЯЮТСЯ ПОСЛЕДОВАТЕЛЬНО · КОМБИНАЦИЯ ИЗ ПЯТИ ПОКРЫВАЕТ 802 ИЗ 814 ГЕНОВ</text>
+            </svg>
+          </figure>
+        </article>
+
+        <article class="ap">
+          <div class="ap-num">06</div>
+          <div class="ap-body">
+            <h3>Эксперимент и честные результаты</h3>
+            <p>
+              Гипотезы проверяем на модельном организме — C.&nbsp;elegans. Сначала строим стенд:
+              стабильные условия, контроль без ранних смертей. Затем — вещество, найденное
+              моделью: в пилоте медианная продолжительность жизни выросла с ~17 до ~30 дней.
+              При этом рапамицин — самый изученный геропротектор — прибавки не дал.
+              Отрицательный результат для нас — тоже результат: он уточняет модель.
+            </p>
+          </div>
+          <figure class="fig">
+            <svg viewBox="0 0 560 340" role="img" aria-label="Кривые выживаемости C. elegans">
+              <path d="M60 290 H520" class="s-ink" stroke-width="1.2"/>
+              <path d="M60 290 V40" class="s-ink" stroke-width="1.2"/>
+              <text x="60" y="310" text-anchor="middle" class="t-mut" font-size="9">0</text>
+              <text x="213" y="310" text-anchor="middle" class="t-mut" font-size="9">10</text>
+              <text x="366" y="310" text-anchor="middle" class="t-mut" font-size="9">20</text>
+              <text x="520" y="310" text-anchor="middle" class="t-mut" font-size="9">30</text>
+              <text x="520" y="328" text-anchor="end" class="t-mut" font-size="9">ДНЕЙ</text>
+              <text x="48" y="294" text-anchor="end" class="t-mut" font-size="9">0%</text>
+              <text x="48" y="169" text-anchor="end" class="t-mut" font-size="9">50%</text>
+              <text x="48" y="44" text-anchor="end" class="t-mut" font-size="9">100%</text>
+              <path d="M60 60 L175 60 C215 62 225 150 250 235 L330 290" fill="none" stroke="#191c1a" stroke-width="1.6"/>
+              <path d="M60 60 L235 60 C280 64 300 150 340 235 L460 290" fill="none" stroke="#1c6b45" stroke-width="2.4"/>
+              <path d="M195 60 V290" stroke="#191c1a" stroke-width="0.9" stroke-dasharray="3 4" opacity="0.5"/>
+              <path d="M272 60 V290" stroke="#1c6b45" stroke-width="0.9" stroke-dasharray="3 4" opacity="0.5"/>
+              <text x="188" y="52" class="t-mut" font-size="9">≈17 ДН.</text>
+              <text x="265" y="52" class="t-green" font-size="9">≈30 ДН.</text>
+              <path d="M330 34 H352" stroke="#191c1a" stroke-width="1.6"/>
+              <text x="358" y="38" class="t-ink" font-size="9.5">КОНТРОЛЬ</text>
+              <path d="M330 58 H352" stroke="#1c6b45" stroke-width="2.4"/>
+              <text x="358" y="62" class="t-ink" font-size="9.5">+ ВЕЩЕСТВО</text>
+            </svg>
+            <figcaption>Пилот: медианная продолжительность жизни C.&nbsp;elegans сдвинулась с ~17 до ~30 дней. Один эксперимент — требуется репликация.</figcaption>
+          </figure>
+        </article>
+
       </div>
     </section>
 
-    <!-- 02 · СТАРЕНИЕ -->
-    <section class="module" id="m2">
-      <header class="mod-head">
-        <span class="idx">02</span>
-        <h2>Старение</h2>
-        <span class="mod-tag">attractor landscape</span>
-        <a class="read" href="https://habr.com/ru/articles/1059232/" target="_blank" rel="noreferrer">Часть 2 → Хабр</a>
-      </header>
-      <div class="mod-body">
-        <div class="info">
-          <p class="cap">
-            Молодость — устойчивое состояние системы. Старение — сползание в другую яму
-            ландшафта. Запустите процесс и посмотрите, как состояние уходит от YOUNG к OLD.
+    <!-- 03 · ПРОЕКТЫ -->
+    <section class="sec" id="projects">
+      <div class="sec-head">
+        <span class="kicker">03 · Проекты</span>
+        <h2>Что мы делаем сейчас</h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project">
+          <h3>Основы биологии для инженеров</h3>
+          <p class="project-tag">просветительский цикл · 5 частей</p>
+          <p>
+            Открытый цикл статей о том, как устроены живые системы с точки зрения вычислений,
+            управления и проектирования: от клетки и белков до старения и омоложения.
+            10&nbsp;000+ читателей на часть.
           </p>
-          <div class="controls">
-            <button class="btn primary" data-aging="live">Прожить жизнь</button>
-            <button class="btn" data-aging="reset">Вернуть в молодость</button>
-          </div>
-          <div class="readout">состояние: <span data-aging="state">YOUNG</span> · возраст <span data-aging="age">0</span>%</div>
-        </div>
-        <div class="stage">
-          <canvas id="c-aging"></canvas>
-        </div>
+          <a class="more" href="#articles">Список частей ↓</a>
+        </article>
+        <article class="project">
+          <h3>Программа омоложения</h3>
+          <p class="project-tag">модель → сигнатура → LINCS → эксперимент</p>
+          <p>
+            Основное исследование: математическая модель старения, возрастная сигнатура,
+            поиск комбинаций воздействий в LINCS/CMap и проверка на C.&nbsp;elegans.
+            Первые пилоты обнадёживают, но результаты требуют репликации.
+          </p>
+          <a class="more" href="https://t.me/reversebiolab" target="_blank" rel="noreferrer">Дневник экспериментов →</a>
+        </article>
+        <article class="project">
+          <h3>Открытая платформа</h3>
+          <p class="project-tag">в разработке</p>
+          <p>
+            Инструменты и стенды для воспроизводимого R&amp;D в биологии: модели, данные и
+            протоколы в открытом доступе. Пока — публичный дневник и репозитории.
+          </p>
+          <a class="more" href="https://github.com/EngineeringBiology" target="_blank" rel="noreferrer">GitHub →</a>
+        </article>
       </div>
     </section>
 
-    <!-- 03 · ОНКОЛОГИЯ -->
-    <section class="module" id="m3">
-      <header class="mod-head">
-        <span class="idx">03</span>
-        <h2>Онкология</h2>
-        <span class="mod-tag">contact inhibition</span>
-        <a class="read" href="https://habr.com/ru/articles/1063044/" target="_blank" rel="noreferrer">Часть 3 → Хабр</a>
-      </header>
-      <div class="mod-body">
-        <div class="info">
-          <p class="cap">
-            Здоровые клетки останавливаются, когда вокруг достаточно соседей. Одна клетка
-            теряет контактное торможение — и делится без границы. Внесите мутацию.
-          </p>
-          <div class="controls">
-            <button class="btn primary" data-onco="mutate">Внести мутацию</button>
-            <button class="btn" data-onco="apoptosis" aria-pressed="false">Апоптоз: выкл</button>
-            <button class="btn" data-onco="therapy">Терапия</button>
-            <button class="btn" data-onco="reset">Заново</button>
-          </div>
-          <div class="readout">мутировавших: <span data-onco="count">0</span></div>
-        </div>
-        <div class="stage">
-          <canvas id="c-onco"></canvas>
-        </div>
+    <!-- 04 · СТАТЬИ -->
+    <section class="sec" id="articles">
+      <div class="sec-head">
+        <span class="kicker">04 · Статьи</span>
+        <h2>Основы биологии для инженеров</h2>
+        <p class="sec-intro">
+          Пять частей — путь от идеи до эксперимента. Полные тексты публикуются на Хабре.
+        </p>
+      </div>
+      <div class="art-list">
+        <a class="art" href="https://habr.com/ru/articles/1057224/" target="_blank" rel="noreferrer">
+          <span class="art-num">00</span>
+          <span class="art-body"><b>Морфогенез</b><i>Клетка как вычислительный узел: локальные правила, рост, регенерация. Начало цикла.</i></span>
+          <span class="art-go">Читать →</span>
+        </a>
+        <a class="art" href="https://habr.com/ru/articles/1058028/" target="_blank" rel="noreferrer">
+          <span class="art-num">01</span>
+          <span class="art-body"><b>Конструкции</b><i>Белки как инженерные детали: форма, заряды, сворачивание, предсказание структур.</i></span>
+          <span class="art-go">Читать →</span>
+        </a>
+        <a class="art" href="https://habr.com/ru/articles/1059232/" target="_blank" rel="noreferrer">
+          <span class="art-num">02</span>
+          <span class="art-body"><b>Старение</b><i>Старение как потеря целевого состояния: аттракторы, квазипрограммы, модель.</i></span>
+          <span class="art-go">Читать →</span>
+        </a>
+        <a class="art" href="https://habr.com/ru/articles/1063044/" target="_blank" rel="noreferrer">
+          <span class="art-num">03</span>
+          <span class="art-body"><b>Онкология</b><i>Сломанное «стоп»: контактное торможение и программа развития, вышедшая из-под контроля.</i></span>
+          <span class="art-go">Читать →</span>
+        </a>
+        <a class="art" href="https://habr.com/ru/articles/1078794/" target="_blank" rel="noreferrer">
+          <span class="art-num">04</span>
+          <span class="art-body"><b>Омоложение</b><i>От модели к эксперименту: вектор старения, LINCS/CMap и первые результаты на C. elegans.</i></span>
+          <span class="art-go">Читать →</span>
+        </a>
       </div>
     </section>
 
-    <!-- 04 · ОМОЛОЖЕНИЕ -->
-    <section class="module" id="m4">
-      <header class="mod-head">
-        <span class="idx">04</span>
-        <h2>Омоложение</h2>
-        <span class="mod-tag">aging vector reversal</span>
-        <a class="read" href="https://habr.com/ru/articles/1078794/" target="_blank" rel="noreferrer">Часть 4 → Хабр</a>
-      </header>
-      <div class="mod-body">
-        <div class="info">
-          <p class="cap">
-            Возрастная сигнатура — направление в пространстве генов. Каждое воздействие —
-            тоже вектор. Включайте комбинацию и смотрите, сколько сигнатуры удаётся развернуть.
-          </p>
-          <div class="controls wrap">
-            <button class="btn chip" data-rej="0">воздействие 1</button>
-            <button class="btn chip" data-rej="1">воздействие 2</button>
-            <button class="btn chip" data-rej="2">воздействие 3</button>
-            <button class="btn chip" data-rej="3">воздействие 4</button>
-            <button class="btn chip" data-rej="4">воздействие 5</button>
+    <!-- 05 · КОМАНДА -->
+    <section class="sec" id="team">
+      <div class="sec-head">
+        <span class="kicker">05 · Команда</span>
+        <h2>Кто это делает</h2>
+      </div>
+      <div class="team-grid">
+        <article class="person">
+          <div class="person-head">
+            <span class="mono-badge">ГМ</span>
+            <div>
+              <h3>Геннадий Музыкантов</h3>
+              <p class="project-tag">основатель · инженер</p>
+            </div>
           </div>
-          <div class="readout big">развёрнуто <span data-rej="pct">0</span>% сигнатуры</div>
+          <p>
+            Электроника на VHDL, реверс-инжиниринг, распределённые системы и AI. Магистратура
+            МФТИ по прикладному анализу данных в медицине. Последние 7–8 лет — биология,
+            машинное обучение и моделирование живых систем.
+          </p>
+          <div class="person-links">
+            <a href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer">Хабр ↗</a>
+            <a href="https://github.com/EngineeringBiology" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
+        </article>
+        <article class="person">
+          <div class="person-head">
+            <span class="mono-badge warm">СВ</span>
+            <div>
+              <h3>Сергей Ватолин</h3>
+              <p class="project-tag">научный партнёр · экспериментальный биолог</p>
+            </div>
+          </div>
+          <p>
+            Занимается экспериментальной биологией и старением. Ведёт экспериментальную часть
+            программы омоложения и помогает держать инженерные аналогии в рамках биологической
+            реальности.
+          </p>
+          <div class="person-links">
+            <a href="https://www.researchgate.net/profile/Sergei-Vatolin" target="_blank" rel="noreferrer">ResearchGate ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 06 · КОНТАКТЫ -->
+    <section class="sec" id="contact">
+      <div class="sec-head">
+        <span class="kicker">06 · Контакты</span>
+        <h2>Поговорим</h2>
+      </div>
+      <div class="contact">
+        <a class="email" href="mailto:hello@engineeringbiology.ru">hello@engineeringbiology.ru</a>
+        <p>
+          Пишите, если хотите предложить коллаборацию, обсудить эксперимент, поставить стенд —
+          или просто задать вопрос по циклу статей.
+        </p>
+        <div class="contact-links">
+          <a href="https://t.me/reversebiolab" target="_blank" rel="noreferrer">Telegram · @reversebiolab ↗</a>
+          <a href="https://vk.ru/club223616395" target="_blank" rel="noreferrer">ВКонтакте ↗</a>
+          <a href="https://github.com/EngineeringBiology" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer">Хабр · @gmuzykantov ↗</a>
         </div>
-        <div class="stage">
-          <canvas id="c-rej"></canvas>
-        </div>
+        <p class="fine">Дневник экспериментов программы омоложения — в Телеграме и ВКонтакте, практически в реальном времени.</p>
       </div>
     </section>
 
@@ -190,20 +512,26 @@
 
   <footer class="foot">
     <div class="foot-in">
-      <div>
-        <div class="foot-title">Инженерная биология</div>
-        <p>Интерактивный цикл по мотивам статей Геннадия Музыкантова. Полные тексты — на Хабре.</p>
+      <div class="foot-brand">
+        <span class="brand-mark">ИБ</span>
+        <div>
+          <b>Инженерная биология</b>
+          <p>Публичный исследовательский проект.</p>
+        </div>
       </div>
-      <div class="foot-links">
-        <a href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer">Хабр · @gmuzykantov ↗</a>
-        <a href="https://t.me/reversebiolab" target="_blank" rel="noreferrer">Telegram · reversebiolab ↗</a>
-        <a href="https://vk.ru/club223616395" target="_blank" rel="noreferrer">VK ↗</a>
-        <a href="https://github.com/EngineeringBiology" target="_blank" rel="noreferrer">GitHub ↗</a>
-      </div>
+      <nav class="foot-nav" aria-label="Разделы в подвале">
+        <a href="#about">Манифест</a>
+        <a href="#approach">Подходы</a>
+        <a href="#projects">Проекты</a>
+        <a href="#articles">Статьи</a>
+        <a href="#team">Команда</a>
+        <a href="#contact">Контакты</a>
+      </nav>
     </div>
-    <div class="foot-note">Модели на этой странице — инженерные аналогии, а не биологическая точность.</div>
+    <div class="foot-note">
+      © 2026 Инженерная биология · Диаграммы на этой странице — инженерные аналогии, а не учебник биологии.
+    </div>
   </footer>
 
-  <script src="assets/main.js"></script>
 </body>
 </html>
