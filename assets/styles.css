@@ -94,7 +94,7 @@ a:hover { color: var(--link-hover); }
 .masthead.is-open .menu__bars::after { transform: translateY(-4px) rotate(-45deg); }
 
 /* ---------- секции ---------- */
-.section { padding: clamp(56px, 9vh, 96px) 0; scroll-margin-top: 72px; }
+.section { padding: 36px 0; scroll-margin-top: 72px; }
 .section__label { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; font: 400 0.82rem/1.4 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .section__label::after { content: ""; flex: 1 1 auto; height: 1px; background: var(--line); }
 h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.9rem); letter-spacing: -0.01em; }
@@ -108,7 +108,7 @@ h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.9rem); letter-spacing: -0.01em; 
 .note-box { border-left: 3px solid var(--link); padding: 4px 0 4px 18px; color: var(--body); max-width: 68ch; margin-top: var(--gap-after-heading); }
 
 /* ---------- строки-определения ---------- */
-.rows { margin-top: 0; border-top: 1px solid var(--line); }
+.rows { margin: 0; border-top: 1px solid var(--line); }
 .row { display: grid; grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1fr); gap: 14px 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .row dt { font: 400 0.86rem/1.5 var(--mono); color: var(--ink); }
 .row dd { margin: 0; color: var(--body); }
@@ -125,7 +125,7 @@ h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.9rem); letter-spacing: -0.01em; 
 .hero { position: relative; isolation: isolate; color: #ececec; background: #14161a; }
 .hero__bg { position: absolute; inset: 0; z-index: -2; background: url("/assets/aging-c-elegans-dapi-1400.webp") center/cover no-repeat; }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(16,18,22,.94) 0%, rgba(16,18,22,.80) 52%, rgba(16,18,22,.55) 100%); }
-.hero__inner { padding-top: clamp(60px, 11vh, 116px); padding-bottom: clamp(48px, 8vh, 84px); }
+.hero__inner { padding-top: 64px; padding-bottom: 36px; }
 .hero h1 { color: #ffffff; max-width: 24ch; }
 .hero .eyebrow { color: #9ec1e8; }
 .hero__lede { margin-top: 20px; max-width: 60ch; color: #d9dde2; font-size: 1.12rem; }
@@ -156,7 +156,7 @@ h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.9rem); letter-spacing: -0.01em; 
 .expert p { margin-top: 2px; color: var(--muted); font-size: 0.84rem; line-height: 1.5; }
 
 /* ---------- подвал ---------- */
-.colophon { border-top: 1px solid var(--line); padding: clamp(36px, 6vh, 64px) 0 40px; background: var(--bg-2); }
+.colophon { border-top: 1px solid var(--line); padding: 40px 0 36px; background: var(--bg-2); }
 .colophon__grid { display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between; }
 .colophon strong { font-size: 1.05rem; }
 .colophon__contact { margin-top: 10px; color: var(--muted); font-size: 0.95rem; }
@@ -184,6 +184,11 @@ h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.9rem); letter-spacing: -0.01em; 
   .person__photo { max-width: 140px; }
   .brand { white-space: normal; font-size: 0.95rem; line-height: 1.15; }
   .masthead__inner { gap: 10px; }
+  .section { padding: 24px 0; }
+  .hero__inner { padding-top: 40px; padding-bottom: 24px; }
+  .colophon { padding: 24px 0 24px; }
+  .experts { margin-top: 28px; }
+  h3 { margin-top: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
