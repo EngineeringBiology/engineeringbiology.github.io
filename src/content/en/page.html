@@ -1,0 +1,141 @@
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+    <p class="eyebrow">Center for Engineering Biology</p>
+    <h1>An engineering approach to living systems</h1>
+    <p class="hero__lede">Formalise the state of a living system, build computational models, obtain quantitative predictions, test them experimentally and use the experimental error to update the model.</p>
+    <div class="cycle" data-cycle aria-label="Engineering cycle">
+      <button class="cycle__step" type="button" aria-pressed="true" data-desc="Collect data on the state of the living system and check how reproducible the measurements are.">Data</button>
+      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
+      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Build a computational description of how state and intervention relate, with explicit assumptions.">Model</button>
+      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
+      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Obtain a quantitative result before the experiment and declare it expected.">Predict</button>
+      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
+      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Carry out the intervention under controlled conditions, with a control group.">Intervene</button>
+      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
+      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Measure the result with the same methods used for the initial state.">Test</button>
+      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
+      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Compare computation with measurement and estimate the magnitude and sign of the prediction error.">Compare</button>
+      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
+      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Change the model in the light of the disagreement and return to the prediction.">Update</button>
+    </div>
+    <p class="cycle__desc" data-cycle-desc>Collect data on the state of the living system and check how reproducible the measurements are.</p>
+  </div>
+</section>
+
+<section class="section" id="engineering">
+  <div class="wrap">
+    <p class="section__label">Engineering biology</p>
+    <h2>What it is</h2>
+    <div class="prose">
+      <p>Biology answers why a system ended up in state X. The engineering question is different. Which intervention moves the system from state X to a required X*, and what happens after it.</p>
+      <p>We do not create a new science and do not claim superiority of the approach. The project shows that an engineering layer is needed in addition to descriptive biology. A model must produce a quantitative prediction before the experiment, and the disagreement between computation and measurement measures the model's quality. A negative result is kept and refines the model.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="research">
+  <div class="wrap">
+    <p class="section__label">Research</p>
+    <h2>Directions</h2>
+    <p class="section__intro">Active research is separated from what is only assumed. Work is underway in one direction.</p>
+    <dl class="rows">
+      <div class="row">
+        <dt>Ageing</dt>
+        <dd>
+          <p>The first task and the first demonstrator of the method. A full cycle from transcriptomic data to a pilot in <em>C.&nbsp;elegans</em>, with the prediction tested by experiment.</p>
+          <p><span class="status">Pilot. Replication needed</span></p>
+        </dd>
+      </div>
+    </dl>
+
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="wrap">
+    <p class="section__label">Method</p>
+    <h2>Engineering cycle</h2>
+    <p class="section__intro">Seven steps that repeat until the disagreement between computation and measurement is acceptable for a given task.</p>
+    <ol class="steps">
+      <li><b>Collect data.</b> Determine which parameters of the living system can be measured and how reproducibly they hold.</li>
+      <li><b>Build a model.</b> Describe the relation between the state and external interventions formally, with explicit assumptions.</li>
+      <li><b>State a prediction.</b> Fix, before the experiment, the quantitative result the model considers expected and the bounds within which it holds.</li>
+      <li><b>Perform the intervention.</b> Carry out the intervention under controlled conditions, with a control group, so that it can be repeated.</li>
+      <li><b>Measure the result.</b> Record the result with the same methods used for the initial state so that the comparison is valid.</li>
+      <li><b>Compare computation and experiment.</b> Estimate the magnitude and sign of the prediction error. A negative result is as much a result as a positive one.</li>
+      <li><b>Update the model.</b> Change the model in the light of the disagreement and return to step 3 with a new prediction.</li>
+    </ol>
+    <div class="note-box"><p>Progress is measured by reducing the error between prediction and measurement, not by the number of publications or the persuasiveness of an explanation.</p></div>
+  </div>
+</section>
+
+<section class="section" id="goals">
+  <div class="wrap">
+    <p class="section__label">Organisation goals</p>
+    <h2>What it builds on</h2>
+    <p class="section__intro">Engineering biology builds on established fields and does not set itself against them.</p>
+    <dl class="rows">
+      <div class="row"><dt>Systems biology</dt><dd>Describing interacting biological systems and their dynamics.</dd></div>
+      <div class="row"><dt>Synthetic biology</dt><dd>Designing biological constructions and deliberately altering systems.</dd></div>
+      <div class="row"><dt>Computational biology</dt><dd>Analysing biological data from which a measurable state is built.</dd></div>
+      <div class="row"><dt>Machine learning</dt><dd>Building models and assessing their predictions outside training conditions.</dd></div>
+      <div class="row"><dt>Control theory</dt><dd>The language of state, control and feedback in which an intervention is formulated.</dd></div>
+      <div class="row"><dt>Experimental biology</dt><dd>Testing models in living organisms and cell cultures.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="team">
+  <div class="wrap">
+    <p class="section__label">People</p>
+    <h2>Who does this</h2>
+    <div class="people">
+      <article class="person">
+        <div class="person__photo"><img src="/assets/people/muzykantov-240.webp" srcset="/assets/people/muzykantov-240.webp 240w, /assets/people/muzykantov.webp 460w" sizes="(max-width: 620px) 60vw, 160px" width="460" height="460" loading="lazy" decoding="async" alt="Gennadii Muzykantov"></div>
+        <h3>Gennadii Muzykantov</h3>
+        <p class="person__role">Co-founder. Engineering models and computation</p>
+        <p class="person__bio">MSc from MIPT in applied data analysis in medicine. Background in VHDL, reverse engineering, distributed systems and applied machine learning. Responsible for engineering models, mathematical modelling and the computational pipeline.</p>
+        <div class="person__links"><a href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer noopener">Habr</a><a href="https://github.com/muzykantov" target="_blank" rel="noreferrer noopener">GitHub</a></div>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="/assets/people/alekseev-240.webp" srcset="/assets/people/alekseev-240.webp 240w, /assets/people/alekseev.webp 400w" sizes="(max-width: 620px) 60vw, 160px" width="400" height="400" loading="lazy" decoding="async" alt="Alexey Alekseev"></div>
+        <h3>Alexey Alekseev</h3>
+        <p class="person__role">Head of the systems biology of ageing direction</p>
+        <p class="person__bio">Omics data, biomarkers and the search for geroprotectors. Responsible for the biological interpretation of models and for linking computational results to data, including measurement limits and experiment validity.</p>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="/assets/people/vatolin.webp" width="203" height="203" loading="lazy" decoding="async" alt="Sergei Vatolin"></div>
+        <h3>Sergei Vatolin, PhD</h3>
+        <p class="person__role">Head of the experimental programme</p>
+        <p class="person__bio">PhD, senior researcher at Case Western Reserve University, Division of Hematology and Oncology, Cleveland. In preclinical drug development since 1990, from target identification to a therapeutic candidate. He develops assays for anti-ageing and anti-tumour compounds and translates the project's hypotheses into cell experiments.</p>
+        <div class="person__links"><a href="https://www.linkedin.com/in/sergei-vatolin-2327263" target="_blank" rel="noreferrer noopener">LinkedIn</a><a href="https://www.researchgate.net/profile/Sergei-Vatolin" target="_blank" rel="noreferrer noopener">ResearchGate</a></div>
+      </article>
+    </div>
+
+    <div class="experts">
+      <h3>Experts and advisers</h3>
+      <div class="experts__list">
+        <div class="expert">
+          <div class="expert__photo"><img src="/assets/people/belenov-240.webp" srcset="/assets/people/belenov-240.webp 240w, /assets/people/belenov.webp 480w" sizes="44px" width="480" height="480" loading="lazy" decoding="async" alt="Alexander Belenov"></div>
+          <div><h4>Alexander Belenov</h4><p>Top expert at the AI Competence Centre of ANO Digital Platforms. Specialises in RAG systems, the MCP protocol and LLM+OCR integration.</p></div>
+        </div>
+        <div class="expert">
+          <div class="expert__photo"><img src="/assets/people/klakovsky-240.webp" srcset="/assets/people/klakovsky-240.webp 240w, /assets/people/klakovsky.webp 480w" sizes="44px" width="480" height="480" loading="lazy" decoding="async" alt="Alexander Klakovsky"></div>
+          <div><h4>Alexander Klakovsky</h4><p>Deployment of AI agents at big tech companies.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="section__label">About</p>
+    <h2>Center for Engineering Biology</h2>
+    <div class="prose">
+      <p>The project develops an engineering approach to living systems and publishes experiment records as they are completed.</p>
+      <p>Engineering biology here does not replace synthetic or computational biology; it adds a requirement for the full cycle. Project texts are published on <a href="https://habr.com/ru/users/gmuzykantov/articles/" target="_blank" rel="noreferrer noopener">Habr</a>.</p>
+    </div>
+  </div>
+</section>
