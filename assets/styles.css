@@ -130,45 +130,10 @@ h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.9rem); letter-spacing: -0.01em; 
 .hero .eyebrow { color: #9ec1e8; }
 .hero__lede { margin-top: 20px; max-width: 60ch; color: #d9dde2; font-size: 1.12rem; }
 /* ---------- инженерный цикл (WebGL) ---------- */
+/* Компонент всегда тёмный: визуализация построена на аддитивном смешении света
+   и на светлом фоне выцветает; hero, в котором он стоит, и так всегда тёмный. */
 .eb-cycle {
-  --eb-bg: #f4f7f8;
-  --eb-surface: #ffffff;
-  --eb-text: #101820;
-  --eb-muted: #68747e;
-  --eb-border: rgba(16, 24, 32, 0.10);
-  --eb-observed: #159a8c;
-  --eb-predicted: #586fe8;
-  --eb-error: #b656a8;
-
-  width: 100%;
-  margin-top: 48px;
-  color: var(--eb-text);
-  font-family: var(--serif);
-}
-@media (prefers-color-scheme: dark) {
-  .eb-cycle {
-    --eb-bg: #071019;
-    --eb-surface: #0b151e;
-    --eb-text: #f1f6fa;
-    --eb-muted: #8d9ba6;
-    --eb-border: rgba(255, 255, 255, 0.10);
-    --eb-observed: #58d7c6;
-    --eb-predicted: #788dff;
-    --eb-error: #d772c8;
-  }
-}
-html[data-theme="light"] .eb-cycle {
-  --eb-bg: #f4f7f8;
-  --eb-surface: #ffffff;
-  --eb-text: #101820;
-  --eb-muted: #68747e;
-  --eb-border: rgba(16, 24, 32, 0.10);
-  --eb-observed: #159a8c;
-  --eb-predicted: #586fe8;
-  --eb-error: #b656a8;
-}
-html[data-theme="dark"] .eb-cycle {
-  --eb-bg: #071019;
+  --eb-bg: #0b1015;
   --eb-surface: #0b151e;
   --eb-text: #f1f6fa;
   --eb-muted: #8d9ba6;
@@ -176,6 +141,11 @@ html[data-theme="dark"] .eb-cycle {
   --eb-observed: #58d7c6;
   --eb-predicted: #788dff;
   --eb-error: #d772c8;
+
+  width: 100%;
+  margin-top: 48px;
+  color: var(--eb-text);
+  font-family: var(--serif);
 }
 .eb-cycle * { box-sizing: border-box; }
 
