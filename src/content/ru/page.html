@@ -4,22 +4,33 @@
     <p class="eyebrow">АНО «Центр инженерной биологии»</p>
     <h1>Инженерный подход к живым системам</h1>
     <p class="hero__lede">Формализуем состояние живой системы, строим вычислительные модели, получаем количественные предсказания, проверяем их экспериментально и используем ошибку эксперимента для следующей итерации модели.</p>
-    <div class="cycle" data-cycle aria-label="Инженерный цикл">
-      <button class="cycle__step" type="button" aria-pressed="true" data-desc="Собираем данные о состоянии живой системы и проверяем, насколько воспроизводимы измерения.">Данные</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Строим вычислительное описание связи состояния и воздействия, с явными допущениями.">Модель</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="До эксперимента получаем количественный результат, который считаем ожидаемым.">Предсказание</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Выполняем воздействие в контролируемых условиях, с контрольной группой.">Вмешательство</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Измеряем результат теми же методами, что и исходное состояние.">Эксперимент</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Сравниваем расчёт и измерение и оцениваем величину и знак ошибки предсказания.">Сравнение</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Изменяем модель с учётом расхождения и возвращаемся к предсказанию.">Обновление</button>
+    <div class="eb-cycle" id="eb-cycle">
+      <div class="eb-cycle__scene">
+        <canvas class="eb-cycle__canvas" aria-label="Визуализация исследовательского цикла"></canvas>
+        <div class="eb-cycle__scrim"></div>
+        <div class="eb-cycle__copy">
+          <div class="eb-cycle__eyebrow">01 · Собрать данные</div>
+          <div class="eb-cycle__title">Данные</div>
+          <div class="eb-cycle__description">Собираем данные о состоянии живой системы и проверяем, насколько воспроизводимы измерения.</div>
+        </div>
+        <div class="eb-cycle__counter">01 / 07</div>
+        <button class="eb-cycle__pause" type="button" aria-label="Пауза" data-label-pause="Пауза" data-label-play="Продолжить">Ⅱ</button>
+        <div class="eb-cycle__experiment-labels">
+          <span>контроль</span>
+          <span>вмешательство</span>
+        </div>
+      </div>
+      <div class="eb-cycle__progress"><span></span></div>
+      <div class="eb-cycle__nav" role="tablist" aria-label="Этапы цикла">
+        <button class="eb-cycle__tab is-active" type="button" data-stage="0" data-eyebrow="01 · Собрать данные" data-title="Данные" data-description="Собираем данные о состоянии живой системы и проверяем, насколько воспроизводимы измерения."><span class="eb-cycle__tab-number">01</span><span class="eb-cycle__tab-label">Данные</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="1" data-eyebrow="02 · Построить модель" data-title="Модель" data-description="Строим вычислительное описание связи состояния и воздействия, с явными допущениями."><span class="eb-cycle__tab-number">02</span><span class="eb-cycle__tab-label">Модель</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="2" data-eyebrow="03 · Сформулировать предсказание" data-title="Предсказание" data-description="До эксперимента получаем количественный результат, который считаем ожидаемым."><span class="eb-cycle__tab-number">03</span><span class="eb-cycle__tab-label">Предсказание</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="3" data-eyebrow="04 · Провести вмешательство" data-title="Вмешательство" data-description="Выполняем воздействие в контролируемых условиях, с контрольной группой."><span class="eb-cycle__tab-number">04</span><span class="eb-cycle__tab-label">Вмешательство</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="4" data-eyebrow="05 · Измерить результат" data-title="Эксперимент" data-description="Измеряем результат теми же методами, что и исходное состояние."><span class="eb-cycle__tab-number">05</span><span class="eb-cycle__tab-label">Эксперимент</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="5" data-eyebrow="06 · Сравнить расчёт и эксперимент" data-title="Сравнение" data-description="Сравниваем расчёт и измерение и оцениваем величину и знак ошибки предсказания."><span class="eb-cycle__tab-number">06</span><span class="eb-cycle__tab-label">Сравнение</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="6" data-eyebrow="07 · Обновить модель" data-title="Обновление" data-description="Изменяем модель с учётом расхождения и возвращаемся к предсказанию."><span class="eb-cycle__tab-number">07</span><span class="eb-cycle__tab-label">Обновление</span></button>
+      </div>
     </div>
-    <p class="cycle__desc" data-cycle-desc>Собираем данные о состоянии живой системы и проверяем, насколько воспроизводимы измерения.</p>
   </div>
 </section>
 

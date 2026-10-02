@@ -4,22 +4,33 @@
     <p class="eyebrow">Center for Engineering Biology</p>
     <h1>An engineering approach to living systems</h1>
     <p class="hero__lede">Formalise the state of a living system, build computational models, obtain quantitative predictions, test them experimentally and use the experimental error to update the model.</p>
-    <div class="cycle" data-cycle aria-label="Engineering cycle">
-      <button class="cycle__step" type="button" aria-pressed="true" data-desc="Collect data on the state of the living system and check how reproducible the measurements are.">Data</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Build a computational description of how state and intervention relate, with explicit assumptions.">Model</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Obtain a quantitative result before the experiment and declare it expected.">Predict</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Carry out the intervention under controlled conditions, with a control group.">Intervene</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Measure the result with the same methods used for the initial state.">Test</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Compare computation with measurement and estimate the magnitude and sign of the prediction error.">Compare</button>
-      <span class="cycle__arrow" aria-hidden="true">&rarr;</span>
-      <button class="cycle__step" type="button" aria-pressed="false" data-desc="Change the model in the light of the disagreement and return to the prediction.">Update</button>
+    <div class="eb-cycle" id="eb-cycle">
+      <div class="eb-cycle__scene">
+        <canvas class="eb-cycle__canvas" aria-label="Research cycle visualisation"></canvas>
+        <div class="eb-cycle__scrim"></div>
+        <div class="eb-cycle__copy">
+          <div class="eb-cycle__eyebrow">01 · Collect data</div>
+          <div class="eb-cycle__title">Data</div>
+          <div class="eb-cycle__description">Collect data on the state of the living system and check how reproducible the measurements are.</div>
+        </div>
+        <div class="eb-cycle__counter">01 / 07</div>
+        <button class="eb-cycle__pause" type="button" aria-label="Pause" data-label-pause="Pause" data-label-play="Resume">Ⅱ</button>
+        <div class="eb-cycle__experiment-labels">
+          <span>control</span>
+          <span>intervention</span>
+        </div>
+      </div>
+      <div class="eb-cycle__progress"><span></span></div>
+      <div class="eb-cycle__nav" role="tablist" aria-label="Cycle stages">
+        <button class="eb-cycle__tab is-active" type="button" data-stage="0" data-eyebrow="01 · Collect data" data-title="Data" data-description="Collect data on the state of the living system and check how reproducible the measurements are."><span class="eb-cycle__tab-number">01</span><span class="eb-cycle__tab-label">Data</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="1" data-eyebrow="02 · Build a model" data-title="Model" data-description="Build a computational description of how state and intervention relate, with explicit assumptions."><span class="eb-cycle__tab-number">02</span><span class="eb-cycle__tab-label">Model</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="2" data-eyebrow="03 · State a prediction" data-title="Predict" data-description="Obtain a quantitative result before the experiment and declare it expected."><span class="eb-cycle__tab-number">03</span><span class="eb-cycle__tab-label">Predict</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="3" data-eyebrow="04 · Perform the intervention" data-title="Intervene" data-description="Carry out the intervention under controlled conditions, with a control group."><span class="eb-cycle__tab-number">04</span><span class="eb-cycle__tab-label">Intervene</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="4" data-eyebrow="05 · Measure the result" data-title="Test" data-description="Measure the result with the same methods used for the initial state."><span class="eb-cycle__tab-number">05</span><span class="eb-cycle__tab-label">Test</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="5" data-eyebrow="06 · Compare computation and experiment" data-title="Compare" data-description="Compare computation with measurement and estimate the magnitude and sign of the prediction error."><span class="eb-cycle__tab-number">06</span><span class="eb-cycle__tab-label">Compare</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="6" data-eyebrow="07 · Update the model" data-title="Update" data-description="Change the model in the light of the disagreement and return to the prediction."><span class="eb-cycle__tab-number">07</span><span class="eb-cycle__tab-label">Update</span></button>
+      </div>
     </div>
-    <p class="cycle__desc" data-cycle-desc>Collect data on the state of the living system and check how reproducible the measurements are.</p>
   </div>
 </section>
 
