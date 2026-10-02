@@ -120,12 +120,17 @@
 
     experimentLabelsEl.classList.toggle("is-visible", index === 4);
 
-    if (window.matchMedia("(max-width: 720px)").matches && tabs[index]) {
-      tabs[index].scrollIntoView({
-        behavior: reducedMotion ? "auto" : "smooth",
-        block: "nearest",
-        inline: "center"
-      });
+    var nav = root.querySelector(".eb-cycle__nav");
+    if (nav && tabs[index] && nav.scrollWidth > nav.clientWidth + 1) {
+      var navRect = nav.getBoundingClientRect();
+      var tabRect = tabs[index].getBoundingClientRect();
+      var target = nav.scrollLeft + (tabRect.left - navRect.left) - (navRect.width - tabRect.width) / 2;
+      target = Math.max(0, Math.min(target, nav.scrollWidth - nav.clientWidth));
+      if (nav.scrollTo) {
+        nav.scrollTo({ left: target, behavior: reducedMotion ? "auto" : "smooth" });
+      } else {
+        nav.scrollLeft = target;
+      }
     }
   }
 
