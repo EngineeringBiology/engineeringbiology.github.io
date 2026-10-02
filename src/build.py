@@ -70,8 +70,8 @@ PAGES = [
 ]
 
 CONTACT = {
-    "ru": [("GitHub", "https://github.com/EngineeringBiology"), ("Telegram", "https://t.me/reversebiolab"), ("Хабр", "https://habr.com/ru/users/gmuzykantov/articles/")],
-    "en": [("GitHub", "https://github.com/EngineeringBiology"), ("Telegram", "https://t.me/reversebiolab"), ("Habr", "https://habr.com/ru/users/gmuzykantov/articles/")],
+    "ru": [("GitHub", "https://github.com/EngineeringBiology"), ("Telegram", "https://t.me/reversebiolab"), ("VK", "https://vk.ru/club223616395"), ("Хабр", "https://habr.com/ru/users/gmuzykantov/articles/")],
+    "en": [("GitHub", "https://github.com/EngineeringBiology"), ("Telegram", "https://t.me/reversebiolab"), ("VK", "https://vk.ru/club223616395"), ("Habr", "https://habr.com/ru/users/gmuzykantov/articles/")],
 }
 
 
