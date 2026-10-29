@@ -10,6 +10,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 import re
 import sys
@@ -47,6 +48,10 @@ STRINGS = {
         "menu": "Разделы",
         "theme": "Переключить светлую и тёмную тему",
         "contact_label": "Почта",
+        "legal_name": "Автономная некоммерческая организация «Центр разработки программного обеспечения и исследований в области инженерной биологии»",
+        "ogrn": "ОГРН 1267700362775",
+        "inn": "ИНН 9717196787",
+        "address": "129626, Москва",
         "rights": "Материалы можно цитировать со ссылкой на источник.",
         "credits_note": "Изображение: HoPo, «Caenorhabditis elegans DAPI», CC BY-SA 3.0, Wikimedia Commons. Изображение предпросмотра: ZEISS Microscopy, CC BY 2.0. Шрифты: Source Serif 4 (Adobe) и IBM Plex Mono (IBM), SIL OFL 1.1.",
     },
@@ -57,6 +62,10 @@ STRINGS = {
         "menu": "Sections",
         "theme": "Toggle light and dark theme",
         "contact_label": "Email",
+        "legal_name": "Autonomous Non-Profit Organization \u201cCenter for Software Development and Research in Engineering Biology\u201d",
+        "ogrn": "OGRN 1267700362775",
+        "inn": "INN 9717196787",
+        "address": "129626, Moscow, Russia",
         "rights": "Materials may be cited with attribution.",
         "credits_note": "Image: HoPo, \u201cCaenorhabditis elegans DAPI\u201d, CC BY-SA 3.0, Wikimedia Commons. Preview image: ZEISS Microscopy, CC BY 2.0. Fonts: Source Serif 4 (Adobe) and IBM Plex Mono (IBM), SIL OFL 1.1.",
     },
@@ -97,6 +106,27 @@ def lang_switch(lang: str, prefix: str) -> str:
             f'<a href="{home_en}" hreflang="en"{en}>EN</a></span>')
 
 
+def jsonld(lang: str) -> str:
+    S = STRINGS[lang]
+    data = {
+        "@context": "https://schema.org",
+        "@type": "NGO",
+        "name": S["site_name"],
+        "legalName": S["legal_name"],
+        "url": BASE_URL + "/",
+        "email": "info@engineeringbiology.ru",
+        "taxID": "9717196787",
+        "identifier": "1267700362775",
+        "address": {
+            "@type": "PostalAddress",
+            "postalCode": "129626",
+            "addressLocality": "Москва" if lang == "ru" else "Moscow",
+            "addressCountry": "RU",
+        },
+    }
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
+
+
 def head(lang: str, title: str, desc: str, out_path: str) -> str:
     prefix = prefix_for(out_path)
     canonical = f"{BASE_URL}/" + ("" if out_path == "index.html" else "en/")
@@ -131,7 +161,8 @@ def head(lang: str, title: str, desc: str, out_path: str) -> str:
 <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="{prefix}assets/fonts/sourceserif4-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{prefix}assets/fonts.css">
-<link rel="stylesheet" href="{prefix}assets/styles.css">"""
+<link rel="stylesheet" href="{prefix}assets/styles.css">
+{jsonld(lang)}"""
 
 
 def header(lang: str, out_path: str) -> str:
@@ -175,6 +206,7 @@ def footer(lang: str, out_path: str) -> str:
       </nav>
     </div>
     <p class="colophon__legal">&copy; {YEAR} {S['site_name']}. {S['rights']}</p>
+    <p class="colophon__req">{S['legal_name']}. {S['ogrn']}, {S['inn']}. {S['address']}.</p>
     <p class="colophon__credits">{S['credits_note']}</p>
   </div>
 </footer>"""
