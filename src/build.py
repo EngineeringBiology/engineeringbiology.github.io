@@ -52,6 +52,7 @@ STRINGS = {
         "ogrn": "ОГРН 1267700362775",
         "inn": "ИНН 9717196787",
         "address": "129626, Москва",
+        "director": "Генеральный директор — Музыкантов Геннадий Юрьевич.",
         "rights": "Материалы можно цитировать со ссылкой на источник.",
         "credits_note": "Изображение: HoPo, «Caenorhabditis elegans DAPI», CC BY-SA 3.0, Wikimedia Commons. Изображение предпросмотра: ZEISS Microscopy, CC BY 2.0. Шрифты: Source Serif 4 (Adobe) и IBM Plex Mono (IBM), SIL OFL 1.1.",
     },
@@ -66,6 +67,7 @@ STRINGS = {
         "ogrn": "OGRN 1267700362775",
         "inn": "INN 9717196787",
         "address": "129626, Moscow, Russia",
+        "director": "Director \u2014 Gennadii Muzykantov.",
         "rights": "Materials may be cited with attribution.",
         "credits_note": "Image: HoPo, \u201cCaenorhabditis elegans DAPI\u201d, CC BY-SA 3.0, Wikimedia Commons. Preview image: ZEISS Microscopy, CC BY 2.0. Fonts: Source Serif 4 (Adobe) and IBM Plex Mono (IBM), SIL OFL 1.1.",
     },
@@ -207,6 +209,7 @@ def footer(lang: str, out_path: str) -> str:
     </div>
     <p class="colophon__legal">&copy; {YEAR} {S['site_name']}. {S['rights']}</p>
     <p class="colophon__req">{S['legal_name']}. {S['ogrn']}, {S['inn']}. {S['address']}.</p>
+    <p class="colophon__req">{S['director']}</p>
     <p class="colophon__credits">{S['credits_note']}</p>
   </div>
 </footer>"""
