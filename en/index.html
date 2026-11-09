@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Center for Engineering Biology — maintenance</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0b0d10;
+  --ink: #f2f2ef;
+  --muted: #8b8f96;
+  --line: #23262b;
+  --accent: #e8b86d;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.0625rem/1.62 var(--serif);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+.grid {
+  position: fixed;
+  inset: -20%;
+  background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 34px 34px;
+  transform: rotate(-8deg);
+  animation: drift 60s linear infinite;
+  pointer-events: none;
+}
+@keyframes drift {
+  from { transform: rotate(-8deg) translate3d(0,0,0); }
+  to   { transform: rotate(-8deg) translate3d(34px,34px,0); }
+}
+.glow {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 78vmin;
+  height: 78vmin;
+  margin: -39vmin 0 0 -39vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(232,184,109,.16), rgba(232,184,109,.04) 45%, transparent 70%);
+  filter: blur(2px);
+  animation: breathe 9s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: .75; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+main {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 6vw, 72px);
+}
+.inner { max-width: 680px; width: 100%; }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: clamp(28px, 6vh, 56px);
+}
+h1 {
+  font-size: clamp(30px, 6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  font-weight: 600;
+  margin: 0 0 22px;
+}
+h1 em { font-style: italic; color: var(--accent); }
+p.lead {
+  font-size: clamp(16px, 2vw, 19px);
+  color: #c3c6cb;
+  margin: 0 0 40px;
+  max-width: 52ch;
+}
+.rule { height: 1px; background: var(--line); margin: 0 0 28px; }
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  align-items: baseline;
+}
+.label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 6px;
+}
+.value { font-size: 15px; color: #d9dbdf; }
+.count {
+  font-family: var(--mono);
+  font-size: clamp(18px, 2.4vw, 22px);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+a { color: var(--ink); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+.foot {
+  position: fixed;
+  left: 0; right: 0; bottom: clamp(16px, 3vh, 28px);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #5b5f66;
+  z-index: 1;
+}
+@media (max-width: 560px) {
+  .meta { gap: 20px; }
+  .foot { position: static; margin-top: 48px; }
+  main { align-items: flex-start; padding-top: 18vh; }
+}
+</style>
+</head>
+<body>
+<div class="grid"></div>
+<div class="glow"></div>
+<main>
+  <div class="inner">
+    <div class="eyebrow">Center for Engineering Biology</div>
+    <h1>Scheduled<br><em>maintenance</em><br>in progress</h1>
+    <p class="lead">We are updating the site structure and preparing new materials. The public version will return within a week.</p>
+    <div class="rule"></div>
+    <div class="meta">
+      <div>
+        <span class="label">Back online</span>
+        <span class="value"><time id="back" datetime="2026-11-16T12:00:00+03:00">November 16, 2026, 12:00 MSK</time></span>
+      </div>
+      <div>
+        <span class="label">Remaining</span>
+        <span class="count" id="count">—</span>
+      </div>
+      <div>
+        <span class="label">Contact</span>
+        <span class="value"><a href="mailto:info@engineeringbiology.ru">info@engineeringbiology.ru</a></span>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="foot">engineeringbiology.ru</div>
+<script>
+(function () {
+  var target = new Date("2026-11-16T12:00:00+03:00").getTime();
+  var el = document.getElementById("count");
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function tick() {
+    var d = target - Date.now();
+    if (d <= 0) { el.textContent = "soon"; return; }
+    var days = Math.floor(d / 86400000);
+    var hours = Math.floor(d % 86400000 / 3600000);
+    var mins = Math.floor(d % 3600000 / 60000);
+    var secs = Math.floor(d % 60000 / 1000);
+    el.textContent = days + " d " + pad(hours) + ":" + pad(mins) + ":" + pad(secs);
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
+</body>
+</html>

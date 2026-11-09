@@ -1,0 +1,160 @@
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+    <p class="eyebrow">АНО «Центр инженерной биологии»</p>
+    <h1>Инженерный подход к живым системам</h1>
+    <p class="hero__lede">Формализуем состояние живой системы, строим вычислительные модели, получаем количественные предсказания, проверяем их экспериментально и используем ошибку эксперимента для следующей итерации модели.</p>
+    <div class="eb-cycle" id="eb-cycle">
+      <div class="eb-cycle__scene">
+        <canvas class="eb-cycle__canvas" aria-label="Визуализация исследовательского цикла"></canvas>
+        <div class="eb-cycle__scrim"></div>
+        <div class="eb-cycle__copy">
+          <div class="eb-cycle__eyebrow">01 · Собрать данные</div>
+          <div class="eb-cycle__title">Данные</div>
+          <div class="eb-cycle__description">Собираем данные о состоянии живой системы и проверяем, насколько воспроизводимы измерения.</div>
+        </div>
+        <div class="eb-cycle__counter">01 / 07</div>
+        <button class="eb-cycle__pause" type="button" aria-label="Пауза" data-label-pause="Пауза" data-label-play="Продолжить">Ⅱ</button>
+        <div class="eb-cycle__experiment-labels">
+          <span>контроль</span>
+          <span>вмешательство</span>
+        </div>
+      </div>
+      <div class="eb-cycle__progress"><span></span></div>
+      <div class="eb-cycle__nav" role="tablist" aria-label="Этапы цикла">
+        <button class="eb-cycle__tab is-active" type="button" data-stage="0" data-eyebrow="01 · Собрать данные" data-title="Данные" data-description="Собираем данные о состоянии живой системы и проверяем, насколько воспроизводимы измерения."><span class="eb-cycle__tab-number">01</span><span class="eb-cycle__tab-label">Данные</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="1" data-eyebrow="02 · Построить модель" data-title="Модель" data-description="Строим вычислительное описание связи состояния и воздействия, с явными допущениями."><span class="eb-cycle__tab-number">02</span><span class="eb-cycle__tab-label">Модель</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="2" data-eyebrow="03 · Сформулировать предсказание" data-title="Предсказание" data-description="До эксперимента получаем количественный результат, который считаем ожидаемым."><span class="eb-cycle__tab-number">03</span><span class="eb-cycle__tab-label">Предсказание</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="3" data-eyebrow="04 · Провести вмешательство" data-title="Вмешательство" data-description="Выполняем воздействие в контролируемых условиях, с контрольной группой."><span class="eb-cycle__tab-number">04</span><span class="eb-cycle__tab-label">Вмешательство</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="4" data-eyebrow="05 · Измерить результат" data-title="Эксперимент" data-description="Измеряем результат теми же методами, что и исходное состояние."><span class="eb-cycle__tab-number">05</span><span class="eb-cycle__tab-label">Эксперимент</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="5" data-eyebrow="06 · Сравнить расчёт и эксперимент" data-title="Сравнение" data-description="Сравниваем расчёт и измерение и оцениваем величину и знак ошибки предсказания."><span class="eb-cycle__tab-number">06</span><span class="eb-cycle__tab-label">Сравнение</span></button>
+        <button class="eb-cycle__tab" type="button" data-stage="6" data-eyebrow="07 · Обновить модель" data-title="Обновление" data-description="Изменяем модель с учётом расхождения и возвращаемся к предсказанию."><span class="eb-cycle__tab-number">07</span><span class="eb-cycle__tab-label">Обновление</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="engineering">
+  <div class="wrap">
+    <p class="section__label">Инженерная биология</p>
+    <h2>Что это</h2>
+    <div class="prose">
+      <p>Биология отвечает на вопрос, почему система оказалась в состоянии X. Инженерный вопрос другой. Какое воздействие переведёт систему из состояния X в заданное X* и что произойдёт после вмешательства.</p>
+      <p>Мы не создаём новую науку и не доказываем превосходство подхода. Проект показывает, что инженерный слой нужен в дополнение к описательной биологии. Модель обязана выдать количественное предсказание до эксперимента, а расхождение между расчётом и измерением служит мерой качества модели. Отрицательный результат сохраняется и уточняет модель.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="research">
+  <div class="wrap">
+    <p class="section__label">Исследования</p>
+    <h2>Направления</h2>
+    <p class="section__intro">Активные исследования отделены от того, что только предполагается. Работа идёт по одному направлению.</p>
+    <dl class="rows">
+      <div class="row">
+        <dt>Старение</dt>
+        <dd>
+          <p>Первая задача и первый демонстратор метода. Полный цикл от транскриптомных данных до пилота на <em>C.&nbsp;elegans</em>, с проверкой предсказания экспериментом.</p>
+          <p><span class="status">Пилот. Нужна репликация</span></p>
+        </dd>
+      </div>
+    </dl>
+
+    <div class="result">
+      <p class="result__label">Последний результат</p>
+      <h3 class="result__title">Слепое предсказание совпало с экспериментом</h3>
+      <p class="result__text">Вычислительный анализ, выполненный без знания результатов эксперимента, независимо указал на те же молекулы, которые были найдены в лаборатории. Предсказанное продление жизни согласуется с наблюдаемым в исследованных условиях, а однократное введение дало эффект, сопоставимый с многократным.</p>
+      <div class="result__links"><a href="https://habr.com/ru/articles/1059232/" target="_blank" rel="noreferrer noopener">Модель на Хабре</a><a href="https://t.me/reversebiolab" target="_blank" rel="noreferrer noopener">Эксперимент в Telegram</a><a href="https://vk.ru/club223616395" target="_blank" rel="noreferrer noopener">VK</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="wrap">
+    <p class="section__label">Метод</p>
+    <h2>Инженерный цикл</h2>
+    <p class="section__intro">Семь шагов, которые повторяются, пока расхождение между расчётом и измерением не станет приемлемым для конкретной задачи.</p>
+    <ol class="steps">
+      <li><b>Собрать данные.</b> Определить, какие параметры живой системы доступны измерению и насколько стабильно они воспроизводятся.</li>
+      <li><b>Построить модель.</b> Описать связь между состоянием и внешними воздействиями формально, с явными допущениями.</li>
+      <li><b>Сформулировать предсказание.</b> Зафиксировать до эксперимента количественный результат, который модель считает ожидаемым, и границы, в которых он верен.</li>
+      <li><b>Провести вмешательство.</b> Выполнить воздействие в контролируемых условиях, с контрольной группой, так, чтобы его можно было воспроизвести.</li>
+      <li><b>Измерить результат.</b> Зафиксировать результат теми же методами, что и исходное состояние, чтобы сравнение было корректным.</li>
+      <li><b>Сравнить расчёт и эксперимент.</b> Оценить величину и знак ошибки предсказания. Отрицательный результат здесь такой же результат, как положительный.</li>
+      <li><b>Обновить модель.</b> Изменить модель с учётом расхождения и вернуться к шагу 3 с новым предсказанием.</li>
+    </ol>
+    <div class="note-box"><p>Прогресс измеряется уменьшением ошибки между предсказанием и измерением, а не количеством публикаций или убедительностью объяснения.</p></div>
+  </div>
+</section>
+
+<section class="section" id="goals">
+  <div class="wrap">
+    <p class="section__label">Цели организации</p>
+    <h2>На что опирается</h2>
+    <p class="section__intro">Инженерная биология опирается на сложившиеся области и не противопоставляет себя им.</p>
+    <dl class="rows">
+      <div class="row"><dt>Системная биология</dt><dd>Описание взаимодействующих биологических систем и их динамики.</dd></div>
+      <div class="row"><dt>Синтетическая биология</dt><dd>Проектирование биологических конструкций и целенаправленное изменение систем.</dd></div>
+      <div class="row"><dt>Вычислительная биология</dt><dd>Анализ биологических данных, на которых строится измеряемое состояние.</dd></div>
+      <div class="row"><dt>Машинное обучение</dt><dd>Построение моделей и оценка их предсказаний вне обучающих условий.</dd></div>
+      <div class="row"><dt>Теория управления</dt><dd>Язык состояния, управления и обратной связи, в котором формулируется вмешательство.</dd></div>
+      <div class="row"><dt>Экспериментальная биология</dt><dd>Проверка моделей на живых организмах и культурах клеток.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="team">
+  <div class="wrap">
+    <p class="section__label">Команда</p>
+    <h2>Кто это делает</h2>
+    <div class="people">
+      <article class="person">
+        <div class="person__photo"><img src="/assets/people/muzykantov-240.webp" srcset="/assets/people/muzykantov-240.webp 240w, /assets/people/muzykantov.webp 460w" sizes="(max-width: 620px) 60vw, 160px" width="460" height="460" loading="lazy" decoding="async" alt="Геннадий Юрьевич Музыкантов"></div>
+        <h3>Геннадий Юрьевич Музыкантов</h3>
+        <p class="person__role">Основатель. Инженерные модели и вычисления</p>
+        <p class="person__bio">Магистратура МФТИ по прикладному анализу данных в медицине. Опыт в VHDL, реверс-инжиниринге, распределённых системах и прикладном машинном обучении. Отвечает за инженерные модели, математическое моделирование и вычислительный стенд.</p>
+        <div class="person__links"><a href="https://habr.com/ru/users/gmuzykantov/" target="_blank" rel="noreferrer noopener">Хабр</a><a href="https://github.com/muzykantov" target="_blank" rel="noreferrer noopener">GitHub</a></div>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="/assets/people/vatolin.webp" width="203" height="203" loading="lazy" decoding="async" alt="Сергей Юрьевич Ватолин"></div>
+        <h3>Сергей Юрьевич Ватолин, PhD</h3>
+        <p class="person__role">Научный руководитель экспериментальной программы</p>
+        <p class="person__bio">PhD, старший исследователь Case Western Reserve University, Division of Hematology and Oncology, Кливленд. С 1990 года в доклинической разработке лекарств, от идентификации мишени до кандидата в терапию. Разрабатывает тесты для поиска анти-возрастных и противоопухолевых соединений и переводит гипотезы проекта в клеточный эксперимент.</p>
+        <div class="person__links"><a href="https://www.linkedin.com/in/sergei-vatolin-2327263" target="_blank" rel="noreferrer noopener">LinkedIn</a><a href="https://www.researchgate.net/profile/Sergei-Vatolin" target="_blank" rel="noreferrer noopener">ResearchGate</a></div>
+      </article>
+    </div>
+
+    <div class="experts">
+      <h3>Эксперты и консультанты</h3>
+      <div class="experts__list">
+        <div class="expert">
+          <div class="expert__photo"><img src="/assets/people/alekseev-240.webp" srcset="/assets/people/alekseev-240.webp 240w, /assets/people/alekseev.webp 400w" sizes="44px" width="400" height="400" loading="lazy" decoding="async" alt="Алексей Алексеевич Алексеев"></div>
+          <div><h4>Алексей Алексеевич Алексеев</h4><p>Консультант по системной биологии старения. Омиксные данные, биомаркеры, корректность интерпретации вычислительных результатов.</p></div>
+        </div>
+        <div class="expert">
+          <div class="expert__photo"><img src="/assets/people/belenov-240.webp" srcset="/assets/people/belenov-240.webp 240w, /assets/people/belenov.webp 480w" sizes="44px" width="480" height="480" loading="lazy" decoding="async" alt="Александр Викторович Беленов"></div>
+          <div><h4>Александр Викторович Беленов</h4><p>Топ-эксперт Центра компетенций ИИ АНО «Цифровые платформы».</p></div>
+        </div>
+        <div class="expert">
+          <div class="expert__photo"><img src="/assets/people/klakovsky-240.webp" srcset="/assets/people/klakovsky-240.webp 240w, /assets/people/klakovsky.webp 480w" sizes="44px" width="480" height="480" loading="lazy" decoding="async" alt="Александр Владимирович Клаковский"></div>
+          <div><h4>Александр Владимирович Клаковский</h4><p>Внедрение ИИ-агентов в бигтех компании.</p></div>
+        </div>
+        <div class="expert">
+          <div class="expert__photo"><img src="/assets/people/kryukov-240.webp" srcset="/assets/people/kryukov-240.webp 240w, /assets/people/kryukov.webp 480w" sizes="44px" width="480" height="480" loading="lazy" decoding="async" alt="Дмитрий Олегович Крюков"></div>
+          <div><h4>Дмитрий Олегович Крюков</h4><p>Биоинформатик, организатор сообщества «Математика старения» (<a href="https://computage.org/" target="_blank" rel="noreferrer noopener">computage.org</a>, <a href="https://t.me/agingmathwaterfall" target="_blank" rel="noreferrer noopener">Telegram</a>).</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="section__label">О центре</p>
+    <h2>Центр инженерной биологии</h2>
+    <div class="prose">
+      <p>Центр инженерной биологии. Проект развивает инженерный подход к живым системам и публикует записи экспериментов по мере их выполнения.</p>
+      <p>Инженерная биология здесь не заменяет синтетическую и вычислительную биологию, а добавляет к ним требование полного цикла. Тексты проекта публикуются на <a href="https://habr.com/ru/users/gmuzykantov/articles/" target="_blank" rel="noreferrer noopener">Хабре</a>.</p>
+    </div>
+  </div>
+</section>
