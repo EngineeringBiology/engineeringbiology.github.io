@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://engineeringbiology.ru/sitemap.xml
+Sitemap: https://ebiol.ru/sitemap.xml

@@ -18,7 +18,7 @@ from datetime import date
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTENT = os.path.join(ROOT, "src", "content")
-BASE_URL = "https://engineeringbiology.ru"
+BASE_URL = "https://ebiol.ru"
 YEAR = date.today().year
 
 NAV = {
