@@ -116,7 +116,7 @@ def jsonld(lang: str) -> str:
         "name": S["site_name"],
         "legalName": S["legal_name"],
         "url": BASE_URL + "/",
-        "email": "info@engineeringbiology.ru",
+        "email": "info@ebiol.ru",
         "taxID": "9717196787",
         "identifier": "1267700362775",
         "address": {
@@ -200,7 +200,7 @@ def footer(lang: str, out_path: str) -> str:
     <div class="colophon__grid">
       <div>
         <strong>{S['brand']}</strong>
-        <p class="colophon__contact">{S['contact_label']}: <a href="mailto:info@engineeringbiology.ru">info@engineeringbiology.ru</a></p>
+        <p class="colophon__contact">{S['contact_label']}: <a href="mailto:info@ebiol.ru">info@ebiol.ru</a></p>
         <nav class="colophon__links" aria-label="Links">{links}</nav>
       </div>
       <nav class="colophon__nav" aria-label="{S['menu']}">
